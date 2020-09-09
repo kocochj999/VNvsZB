@@ -7,6 +7,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Zombie : MonoBehaviour
 {
+    
     private Rigidbody2D rb;
 
     private Transform player;
@@ -17,18 +18,21 @@ public class Zombie : MonoBehaviour
     private float hurtResetTime;
     private float maxDistance = 10f;
 
+    private bool canBite = true;
 
     private int health;
     private float biteDamge;
 
+    
     // Start is called before the first frame update
     void Start()
     {
-        hurtResetTime = 0.2f;
-        hurtTimer = 0f;
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         center = GameObject.FindGameObjectWithTag("Center").GetComponent<Transform>();
+
+        hurtResetTime = 0.2f;
+        hurtTimer = 0f;
         health = 5;
         
     }
@@ -40,7 +44,6 @@ public class Zombie : MonoBehaviour
         {
             canChase = true;
         }
-
         
         if (isHurt == true)
         {
@@ -54,7 +57,7 @@ public class Zombie : MonoBehaviour
             canChase = true;
         }
 
-        if (canChase)
+        if (canChase && !PlayerController.instance.isDead)
         {
             ChaseFilter();
         }
@@ -63,8 +66,6 @@ public class Zombie : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Debug.Log("is Hurt:" + isHurt);
-        Debug.Log("canChase: " + canChase);
 
     }
     public void GettingShot()
@@ -91,5 +92,13 @@ public class Zombie : MonoBehaviour
 
         }
     }
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "Player" && PlayerController.instance.vulnerable)
+        {
+            PlayerController.instance.getBitten();
+            PlayerController.instance.vulnerable = false;
+        }
+    }
+
 }

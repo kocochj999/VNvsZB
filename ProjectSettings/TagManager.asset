@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - ZB
   - Center
+  - Confiner
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Confiner
+  - BulletRange
   - 
   - 
   - 

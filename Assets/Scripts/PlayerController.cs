@@ -2,34 +2,78 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Text;
 using UnityEditorInternal;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     private Rigidbody2D rb;
     private Animator anim;
+    private AudioSource audioSource;
+    
+    private enum State { normal, hurt, dead}
+    private State state = State.normal;
+
+    private int health;
+    private float vulnerableTimer;
+    private float vulnerableResetTime;
+    public bool vulnerable = true;
+    public bool isDead = false;
 
     private float moveForce = 3.5f;
-    private int healthPoint;
-    private float speed;
-    private float hitDamge;
-    private float fireRange;
-    // Start is called before the first frame update
+
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        
-    }
+        audioSource = GetComponent<AudioSource>();
 
-    // Update is called once per frame
+        health = 3;
+        vulnerableTimer = 0f;
+        vulnerableResetTime = 3f;
+
+    }
     void Update()
     {
-        Movement();
-        
-        
+        if(!isDead)
+        {
+            Movement();
+            if (!vulnerable)
+            {
+                vulnerableTimer += Time.deltaTime;
+
+            }
+            
+            if (vulnerableTimer >= vulnerableResetTime)
+            {
+                vulnerableTimer = 0;
+                vulnerable = true;
+            }
+            Debug.Log("Health: " + health);
+            Debug.Log("Vulnerable: " + vulnerable);
+        }
+        if (health == 0)
+        {
+            isDead = true;
+            GameController.instance.GameOver();
+        }
+        StateSwitch();
+        anim.SetInteger("state", (int)state);
     }
     private void Movement()
     {
@@ -56,25 +100,40 @@ public class PlayerController : MonoBehaviour
     {
 
     }
-    /* private void Shoot()
+    public void PlaySound(AudioClip clip)
     {
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        
-        if (Physics.Raycast(ray, out hit, 100f)) // if gì đây a -> if có raycast :)) nhặt trên mạng em ui
-            // Kiểu bắn trong game này ko nên dùng raycast, để e cho a xem cái video này rồi làm giống nó
-            // raycast dùng trong mấy cái bắn nó loằng ngoằng hơn thôi.
+        audioSource.PlayOneShot(clip);
+    }
+    public void getBitten()
+    {
+        health--;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "ZB" && vulnerable)
         {
-            Debug.DrawLine(ray.origin, hit.point, Color.black);
-            Debug.Log("Shot fired.");
+            vulnerable = false;
+            getBitten();
         }
+    }
+    private void StateSwitch()
+    {
+        if(!vulnerable)
+        {
+            state = State.hurt;
+
+            if(isDead)
+            {
+                state = State.dead;
+            }
+        }
+        
         else
         {
-            Debug.DrawLine(ray.origin, ray.direction * 10f, Color.black);
-            Debug.Log("Shot fired but didnt hit anyone");
+            state = State.normal;
         }
+    }
+    
 
-    }*/
 
 }

@@ -9,7 +9,7 @@ public class ZombiePool : MonoBehaviour
 
     private GameObject[] zombiePool;
     private Vector2 objectPoolPosition = new Vector2(-15, -25);
-    private int poolMaxSize = 10;
+    private int poolMaxSize = 20;
     private float spawnRate = 3f;
     private float timeSinceLastSpawn;
     private int currentZombie = 0;

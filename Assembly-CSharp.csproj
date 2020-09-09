@@ -63,7 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DestroyBullet.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PointAndShoot.cs" />
     <Compile Include="Assets\Scripts\Zombie.cs" />
@@ -603,6 +605,10 @@
       <Project>{BA7A45FB-1076-52C5-7FF8-282914DA716E}</Project>
       <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{82106701-6C20-F028-E091-A979735E8F37}</Project>
+      <Name>Cinemachine</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
       <Project>{F777A006-FBD4-3C3B-4400-6DAA16F50C2B}</Project>
       <Name>Unity.2D.Animation.Runtime</Name>
@@ -686,6 +692,10 @@
     <ProjectReference Include="Unity.2D.Animation.Editor.csproj">
       <Project>{736E0EA4-39E1-4E54-B48A-14DCE08F438E}</Project>
       <Name>Unity.2D.Animation.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{E937D599-C65E-F88F-3B02-9662D4F84CD3}</Project>
+      <Name>com.unity.cinemachine.editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.Editor.csproj">
       <Project>{05FDE8FE-7B0D-5477-4D38-0834AD28E96D}</Project>
