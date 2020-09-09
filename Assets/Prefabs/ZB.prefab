@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3499428561552653811}
   - component: {fileID: 3499428561552653810}
   - component: {fileID: 3499428561552653809}
-  - component: {fileID: 3499428561552653814}
+  - component: {fileID: -8237965939973594956}
   m_Layer: 0
   m_Name: ZB
   m_TagString: ZB
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab6b3c9aba82b443a5d7125f47235d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &3499428561552653814
+--- !u!50 &-8237965939973594956
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -130,9 +130,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3499428561552653773}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 200
   m_LinearDrag: 0
@@ -140,6 +140,6 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
   m_Constraints: 4

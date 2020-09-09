@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private enum State { normal, hurt, dead}
     private State state = State.normal;
 
-    private int health;
+    public int health;
     private float vulnerableTimer;
     private float vulnerableResetTime;
     public bool vulnerable = true;
@@ -108,14 +108,18 @@ public class PlayerController : MonoBehaviour
     {
         health--;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
+        rb.velocity = Vector2.zero;
+    
         if(collision.transform.tag == "ZB" && vulnerable)
         {
             vulnerable = false;
             getBitten();
         }
     }
+  
+        
     private void StateSwitch()
     {
         if(!vulnerable)
