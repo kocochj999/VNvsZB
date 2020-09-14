@@ -64,8 +64,6 @@ public class PlayerController : MonoBehaviour
                 vulnerableTimer = 0;
                 vulnerable = true;
             }
-            Debug.Log("Health: " + health);
-            Debug.Log("Vulnerable: " + vulnerable);
         }
         if (health == 0)
         {

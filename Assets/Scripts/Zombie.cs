@@ -40,7 +40,7 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.transform.position.y > 14.5f)
+        if (Vector2.Distance(transform.position, player.position) >= 14.5f)
         {
             canChase = true;
         }
@@ -72,6 +72,7 @@ public class Zombie : MonoBehaviour
     {
         health--;
         isHurt = true;
+        rb.velocity = Vector2.zero;
     }
     private void Chase(Transform target, float moveSpeed)
     {
@@ -84,7 +85,7 @@ public class Zombie : MonoBehaviour
         
         if (Vector2.Distance(transform.position, player.position) >= maxDistance)
         {
-            Chase(center, 2f);
+            Chase(center, 1.5f);
         }
         else
         {
@@ -96,6 +97,7 @@ public class Zombie : MonoBehaviour
     {
         if(collision.transform.tag == "Player" && PlayerController.instance.vulnerable)
         {
+            rb.velocity = Vector2.zero;
             PlayerController.instance.getBitten();
             PlayerController.instance.vulnerable = false;
         }
