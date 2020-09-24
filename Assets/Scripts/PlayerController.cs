@@ -6,6 +6,8 @@ using System.Text;
 using UnityEditorInternal;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
+using Quaternion = UnityEngine.Quaternion;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +27,12 @@ public class PlayerController : MonoBehaviour
 
     private float moveForce = 3.5f;
 
+
+
+    public GameObject bulletPrefab;
+    public GameObject bulletStart;
+    private float bulletSpeed = 20f;
+    public AudioClip fireSound;
 
     private void Awake()
     {
@@ -136,6 +144,21 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    public void Shoot(Vector3 difference,Vector3 target,float rotationZ)
+    {
+        float distance = difference.magnitude;
+        Vector2 direction = difference / distance;
+        direction.Normalize();
+        FireBullet(direction, rotationZ);
+    }
 
-
+    private void FireBullet(Vector2 direction, float rotationZ)
+    {
+        GameObject b = Instantiate(bulletPrefab) as GameObject;
+        b.transform.position = bulletStart.transform.position;
+        b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        this.PlaySound(fireSound);
+    }
+    
 }
