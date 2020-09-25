@@ -250,6 +250,10 @@ MonoBehaviour:
   health: 0
   vulnerable: 1
   isDead: 0
+  bulletPrefab: {fileID: 1770944866230570881, guid: 7f7f1b262dff5d746b469d7c7fe2803a,
+    type: 3}
+  bulletStart: {fileID: 2096143274}
+  fireSound: {fileID: 8300000, guid: 93fba0b1bf5014543918fa775911b6a3, type: 3}
 --- !u!212 &366462234
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -709,10 +713,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairs: {fileID: 1698748418}
   player: {fileID: 366462232}
-  bulletPrefab: {fileID: 1770944866230570881, guid: 7f7f1b262dff5d746b469d7c7fe2803a,
-    type: 3}
-  bulletStart: {fileID: 2096143274}
-  fireSound: {fileID: 8300000, guid: 93fba0b1bf5014543918fa775911b6a3, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

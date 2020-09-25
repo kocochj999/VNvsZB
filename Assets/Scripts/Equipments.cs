@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Equipments : MonoBehaviour
 {
-    public GameObject WeaponObject;
-
     public GameObject armor;
     public GameObject helmet;
-    public Weapons weapon; 
+    public GameObject weapon; 
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +16,6 @@ public class Equipments : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        WeaponObject.GetComponent<SpriteRenderer>().sprite = weapon.icon;
+        
     }
 }
