@@ -250,9 +250,6 @@ MonoBehaviour:
   health: 0
   vulnerable: 1
   isDead: 0
-  bulletPrefab: {fileID: 1770944866230570881, guid: 7f7f1b262dff5d746b469d7c7fe2803a,
-    type: 3}
-  bulletStart: {fileID: 2096143274}
   fireSound: {fileID: 8300000, guid: 93fba0b1bf5014543918fa775911b6a3, type: 3}
 --- !u!212 &366462234
 SpriteRenderer:
@@ -495,10 +492,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cace6042a7514644e8ae63b63e84e35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponObject: {fileID: 939956877}
   armor: {fileID: 0}
   helmet: {fileID: 0}
-  weapon: {fileID: 11400000, guid: 7def65c26cbb47e4d9d4a6375034a782, type: 2}
+  weapon: {fileID: 939956877}
 --- !u!1 &399141088
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +814,94 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &604066871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 604066872}
+  - component: {fileID: 604066873}
+  m_Layer: 0
+  m_Name: Start1
+  m_TagString: StartBullet1
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &604066872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604066871}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 939956879}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &604066873
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604066871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &771418202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771418203}
+  - component: {fileID: 771418204}
+  m_Layer: 0
+  m_Name: Start2
+  m_TagString: StartBullet2
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &771418203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771418202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 939956879}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &771418204
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771418202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &866130703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,6 +1135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939956879}
   - component: {fileID: 939956878}
+  - component: {fileID: 939956880}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -1118,10 +1203,31 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.413, y: -0.029, z: 0}
   m_LocalScale: {x: 0.11616387, y: 0.11616387, z: 0.11616387}
-  m_Children: []
+  m_Children:
+  - {fileID: 604066872}
+  - {fileID: 771418203}
   m_Father: {fileID: 366462235}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939956880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939956877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14b6d0d4f9032f419a8578ec66f58d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 7def65c26cbb47e4d9d4a6375034a782, type: 2}
+  bullet: {fileID: 0}
+  BulletStart: []
+  timeCount: 0
+  damage: 0
+  delay: 0
+  speed: 0
 --- !u!1 &1205630914
 GameObject:
   m_ObjectHideFlags: 0
