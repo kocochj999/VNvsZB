@@ -6,6 +6,7 @@ using System.Text;
 using UnityEditorInternal;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,13 @@ public class PlayerController : MonoBehaviour
     private float vulnerableResetTime;
     public bool vulnerable = true;
     public bool isDead = false;
+
+    //Weapon and bullets
+    public GameObject bulletPrefab;
+    public GameObject bulletStart;
+    public AudioClip fireSound;
+
+    private float bulletSpeed = 20f;
 
     private float moveForce = 3.5f;
 
@@ -135,7 +143,22 @@ public class PlayerController : MonoBehaviour
             state = State.normal;
         }
     }
-    
+    public void Shoot(Vector3 target, Vector3 difference, float rotationZ)
+    {
+        float distance = difference.magnitude;
+        Vector2 direction = difference / distance;
+        direction.Normalize();
+        FireBullet(direction, rotationZ);
+    }
+    void FireBullet(Vector2 direction, float rotationZ)
+    {
+        GameObject b = Instantiate(bulletPrefab) as GameObject;
+        b.transform.position = bulletStart.transform.position;
+        b.transform.rotation = UnityEngine.Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        PlayerController.instance.PlaySound(fireSound);
+    }
+
 
 
 }

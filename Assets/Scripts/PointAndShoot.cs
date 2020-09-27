@@ -13,14 +13,12 @@ public class PointAndShoot : MonoBehaviour
 {
     public GameObject crosshairs;
     public GameObject player;
-    public GameObject bulletPrefab;
-    public GameObject bulletStart;
-    public AudioClip fireSound;
+    
 
 
 
 
-    private float bulletSpeed = 20f;
+    
     private Vector3 target;
     // Start is called before the first frame update
     void Start()
@@ -42,24 +40,10 @@ public class PointAndShoot : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                float distance = difference.magnitude;
-                Vector2 direction = difference / distance;
-                direction.Normalize();
-                FireBullet(direction, rotationZ);
+                PlayerController.instance.Shoot(target, difference, rotationZ);
             }
         }
-        
-        
     }
-    void FireBullet(Vector2 direction, float rotationZ)
-    {
-        GameObject b = Instantiate(bulletPrefab) as GameObject;
-        b.transform.position = bulletStart.transform.position;
-        b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
-        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-        PlayerController.instance.PlaySound(fireSound);
-
-
-    }
+   
     
 }
