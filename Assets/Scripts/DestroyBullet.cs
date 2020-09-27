@@ -15,7 +15,7 @@ public class DestroyBullet : MonoBehaviour
         {
             Destroy(gameObject);
             Zombie zb = collision.gameObject.GetComponent<Zombie>();
-            zb.GettingShot();
+            zb.GettingShot(collision.gameObject);
         }
     }
 

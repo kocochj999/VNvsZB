@@ -20,7 +20,7 @@ public class Zombie : MonoBehaviour
 
     private bool canBite = true;
 
-    private int health;
+    private float health;
     private float biteDamge;
 
     
@@ -33,7 +33,7 @@ public class Zombie : MonoBehaviour
 
         hurtResetTime = 0.2f;
         hurtTimer = 0f;
-        health = 5;
+        health = 200;
         
     }
 
@@ -68,9 +68,10 @@ public class Zombie : MonoBehaviour
         }
 
     }
-    public void GettingShot()
+    public void GettingShot(GameObject gO)
     {
-        health--;
+        
+        health-= gO.GetComponent<Bullet>().damage;
         isHurt = true;
         rb.velocity = Vector2.zero;
     }
