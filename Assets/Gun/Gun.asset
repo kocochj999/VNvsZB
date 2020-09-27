@@ -15,10 +15,12 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: b8899a27e892ef646bae97885d05640c, type: 3}
   weaponType: 1
   weaponName: AK47
-  damge: 20
-  fireRate: 1
+  damage: 30
+  fireRate: 0.15
   fireRange: 20
   bulletPerShot: 1
+  fireSound: {fileID: 8300000, guid: 93fba0b1bf5014543918fa775911b6a3, type: 3}
+  bulletSpeed: 20
   bulletPrefab: {fileID: 1770944866230570881, guid: 7f7f1b262dff5d746b469d7c7fe2803a,
     type: 3}
   holderCapacity: 1

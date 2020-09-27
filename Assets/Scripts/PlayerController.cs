@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     private Rigidbody2D rb;
     private Animator anim;
-    private AudioSource audioSource;
     
     private enum State { normal, hurt, dead}
     private State state = State.normal;
@@ -49,7 +48,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
 
         health = 3;
         vulnerableTimer = 0f;
@@ -106,10 +104,7 @@ public class PlayerController : MonoBehaviour
     {
 
     }
-    public void PlaySound(AudioClip clip)
-    {
-        audioSource.PlayOneShot(clip);
-    }
+    
     public void getBitten()
     {
         health--;
@@ -143,21 +138,12 @@ public class PlayerController : MonoBehaviour
             state = State.normal;
         }
     }
-    public void Shoot(Vector3 target, Vector3 difference, float rotationZ)
+    public void PullTrigger(Vector3 target, Vector3 difference, float rotationZ)
     {
-        float distance = difference.magnitude;
-        Vector2 direction = difference / distance;
-        direction.Normalize();
-        FireBullet(direction, rotationZ);
+        WeaponController.instance.Shoot(target, difference, rotationZ);
+        
     }
-    void FireBullet(Vector2 direction, float rotationZ)
-    {
-        GameObject b = Instantiate(bulletPrefab) as GameObject;
-        b.transform.position = bulletStart.transform.position;
-        b.transform.rotation = UnityEngine.Quaternion.Euler(0.0f, 0.0f, rotationZ);
-        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-        PlayerController.instance.PlaySound(fireSound);
-    }
+    
 
 
 

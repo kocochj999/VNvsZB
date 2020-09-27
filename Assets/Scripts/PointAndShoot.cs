@@ -40,7 +40,7 @@ public class PointAndShoot : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                PlayerController.instance.Shoot(target, difference, rotationZ);
+                PlayerController.instance.PullTrigger(target, difference, rotationZ);
             }
         }
     }

@@ -9,6 +9,8 @@ TagManager:
   - ZB
   - Center
   - Confiner
+  - BulletStart1
+  - BulletStart2
   layers:
   - Default
   - TransparentFX

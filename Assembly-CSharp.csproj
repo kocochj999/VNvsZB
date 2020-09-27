@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DestroyBullet.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\Weapons.cs" />
     <Compile Include="Assets\Scripts\Zombie.cs" />
     <Compile Include="Assets\Scripts\ZombiePool.cs" />
+    <Compile Include="Assets\WeaponController.cs" />
     <None Include="Assets\read me.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
