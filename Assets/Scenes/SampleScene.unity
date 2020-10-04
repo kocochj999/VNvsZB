@@ -249,10 +249,6 @@ MonoBehaviour:
   health: 0
   vulnerable: 1
   isDead: 0
-  bulletPrefab: {fileID: 1770944866230570881, guid: 7f7f1b262dff5d746b469d7c7fe2803a,
-    type: 3}
-  bulletStart: {fileID: 0}
-  fireSound: {fileID: 8300000, guid: 93fba0b1bf5014543918fa775911b6a3, type: 3}
 --- !u!212 &366462234
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -316,6 +312,7 @@ Transform:
   m_Children:
   - {fileID: 1793957192}
   - {fileID: 546845340}
+  - {fileID: 800171032}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -847,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a125d8d203314043983801f0da5d5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: ceca6a2ae091f1e45ab3031aa1f47e9d, type: 2}
+  weapon: {fileID: 11400000, guid: ad5d5f8211425e44b84de1cda9594842, type: 2}
   weaponHolder: []
   damage: 0
   fireRate: 0
@@ -856,6 +853,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   bulletStart: []
   fireSound: {fileID: 0}
+  timeCount: 0
 --- !u!212 &546845342
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1002,6 +1000,59 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &800171031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800171032}
+  - component: {fileID: 800171033}
+  m_Layer: 0
+  m_Name: Armor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &800171032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800171031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 366462235}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &800171033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800171031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11aa2f4cf99c694786af9f2a04a9f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armor: {fileID: 11400000, guid: bd28f727a9033034f9318b6c2d913544, type: 2}
+  armorType: 0
+  armorName: 
+  armorLevel: 0
+  armorValue: 0
+  armorDamage: 0
+  addedValue: 0
+  chargeTime: 0
+  isCharged: 0
+  shieldTimer: 0
 --- !u!1 &866130703
 GameObject:
   m_ObjectHideFlags: 0
@@ -35314,7 +35365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 88}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787198790

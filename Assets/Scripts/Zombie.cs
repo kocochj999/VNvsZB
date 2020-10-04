@@ -18,10 +18,11 @@ public class Zombie : MonoBehaviour
     private float hurtResetTime;
     private float maxDistance = 10f;
 
-    private bool canBite = true;
+    //private bool canBite = true;
 
-    private float health;
-    private float biteDamge;
+    public float health;
+    public float biteDamage;
+    public float moveSpeed = 4;
 
     
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class Zombie : MonoBehaviour
         hurtResetTime = 0.2f;
         hurtTimer = 0f;
         health = 200;
+        biteDamage = 40f;
         
     }
 
@@ -62,15 +64,18 @@ public class Zombie : MonoBehaviour
             ChaseFilter();
         }
 
-        if (health == 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
+        }
+        if(PlayerController.instance.isDead)
+        {
+            rb.velocity = Vector2.zero;
         }
 
     }
     public void GettingShot(GameObject gO)
     {
-        
         health-= gO.GetComponent<Bullet>().damage;
         isHurt = true;
         rb.velocity = Vector2.zero;
@@ -86,11 +91,11 @@ public class Zombie : MonoBehaviour
         
         if (Vector2.Distance(transform.position, player.position) >= maxDistance)
         {
-            Chase(center, 1.5f);
+            Chase(center, moveSpeed/2);
         }
         else
         {
-            Chase(player, 3.5f);
+            Chase(player, moveSpeed);
 
         }
     }
@@ -99,7 +104,7 @@ public class Zombie : MonoBehaviour
         if(collision.transform.tag == "Player" && PlayerController.instance.vulnerable)
         {
             rb.velocity = Vector2.zero;
-            PlayerController.instance.getBitten();
+            PlayerController.instance.getBitten(gameObject);
             PlayerController.instance.vulnerable = false;
         }
     }

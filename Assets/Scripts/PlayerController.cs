@@ -17,20 +17,19 @@ public class PlayerController : MonoBehaviour
     private enum State { normal, hurt, dead}
     private State state = State.normal;
 
-    public int health;
+    public float health;
+    private float moveForce = 3.5f;
     private float vulnerableTimer;
     private float vulnerableResetTime;
     public bool vulnerable = true;
     public bool isDead = false;
 
-    //Weapon and bullets
-    public GameObject bulletPrefab;
-    public GameObject bulletStart;
-    public AudioClip fireSound;
+    
 
-    private float bulletSpeed = 20f;
 
-    private float moveForce = 3.5f;
+
+
+
 
 
     private void Awake()
@@ -49,10 +48,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        health = 3;
+        health = 100;
         vulnerableTimer = 0f;
         vulnerableResetTime = 3f;
 
+        
     }
     void Update()
     {
@@ -71,15 +71,17 @@ public class PlayerController : MonoBehaviour
                 vulnerable = true;
             }
         }
-        if (health == 0)
+        if (health <= 0)
         {
             isDead = true;
             GameController.instance.GameOver();
         }
         StateSwitch();
         anim.SetInteger("state", (int)state);
-    }
-    private void Movement()
+
+        
+}
+private void Movement()
     {
         float hDirection = Input.GetAxis("Horizontal") * Time.deltaTime;
         float vDirection = Input.GetAxis("Vertical") * Time.deltaTime ;
@@ -105,9 +107,20 @@ public class PlayerController : MonoBehaviour
 
     }
     
-    public void getBitten()
+    public void getBitten(GameObject zombieObject)
     {
-        health--;
+        if(ArmorController.instance.isCharged)
+        {
+            health -= (zombieObject.GetComponent<Zombie>().biteDamage - ArmorController.instance.armorValue - ArmorController.instance.addedValue);
+            ArmorController.instance.isCharged = false;
+            ArmorController.instance.shieldTimer = 0;
+        }
+        else
+        {
+            health -= (zombieObject.GetComponent<Zombie>().biteDamage - ArmorController.instance.armorValue);
+        }
+        
+        zombieObject.GetComponent<Zombie>().health -= ArmorController.instance.armorDamage;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -115,8 +128,9 @@ public class PlayerController : MonoBehaviour
     
         if(collision.transform.tag == "ZB" && vulnerable)
         {
+            ArmorController.instance.isCharged = false;
             vulnerable = false;
-            getBitten();
+            getBitten(collision.gameObject);
         }
     }
   
@@ -141,7 +155,6 @@ public class PlayerController : MonoBehaviour
     public void PullTrigger(Vector3 target, Vector3 difference, float rotationZ)
     {
         WeaponController.instance.Shoot(target, difference, rotationZ);
-        
     }
     
 
