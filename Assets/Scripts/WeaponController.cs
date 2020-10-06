@@ -7,13 +7,14 @@ public class WeaponController : MonoBehaviour
     public static WeaponController instance;
 
     public Weapons weapon;
-    public GameObject bullet;
+
+    public GameObject bulletPrefab;
     public GameObject[] BulletStart;
     
     public float timeCount=0;
     public float damage;
     public float delay;
-    public float speed;
+    public float speed; 
 
     private void Awake()
     {
@@ -36,9 +37,9 @@ public class WeaponController : MonoBehaviour
         if (weapon.type == 1) // Sung luc
         {
             Gun gun = (Gun) weapon;
-            this.bullet = gun.bullet;
-            this.bullet.GetComponent<Bullet>().damage = this.damage;
-            this.BulletStart = new GameObject[gun.bulletSize];
+            this.bulletPrefab = gun.bulletPrefab;
+            this.bulletPrefab.GetComponent<Bullet>().damage = this.damage;
+            this.BulletStart = new GameObject[gun.holderCapacity];
             try
             {
                 this.BulletStart[0] = GameObject.FindGameObjectWithTag("StartBullet1");
@@ -71,15 +72,16 @@ public class WeaponController : MonoBehaviour
 
     private void FireBullet(Vector2 direction, float rotationZ)
     {
-        GameObject b = Instantiate(bullet) as GameObject;
+        GameObject b = Instantiate(bulletPrefab) as GameObject;
         b.transform.position = BulletStart[0].transform.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         b.GetComponent<Rigidbody2D>().velocity = direction * speed;
         PlayerController.instance.PlaySound(PlayerController.instance.fireSound );
-        GameObject c = Instantiate(bullet) as GameObject;
+        GameObject c = Instantiate(bulletPrefab) as GameObject;
         c.transform.position = BulletStart[1].transform.position;
         c.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         c.GetComponent<Rigidbody2D>().velocity = direction * speed;
+        Debug.Log("oke");
     }
     
 }

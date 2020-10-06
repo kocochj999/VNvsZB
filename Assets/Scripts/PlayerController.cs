@@ -98,10 +98,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, -moveForce);
         }
     }
-    private void StateHandler()
-    {
 
-    }
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);

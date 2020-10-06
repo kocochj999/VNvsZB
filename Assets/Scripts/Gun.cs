@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Gun",menuName ="Weapons/Gun",order = 1)]
 public class Gun : Weapons
 {   
-    public int bulletSize;
-    public GameObject bullet;
+    public int holderCapacity;
+    public GameObject bulletPrefab;
 
 }

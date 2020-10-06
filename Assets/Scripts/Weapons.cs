@@ -8,7 +8,6 @@ abstract public class Weapons : ScriptableObject
     public string itemName;
     public Sprite icon;
 
-    GameObject[] BulletStart;
     public float damage;
     public float attackDelay;
     public float speed;

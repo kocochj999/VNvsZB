@@ -14,10 +14,6 @@ public class PointAndShoot : MonoBehaviour
     public GameObject crosshairs;
     public GameObject player;
     
-    
-
-
-    
     private UnityEngine.Vector3 target;
     // Start is called before the first frame update
     void Start()

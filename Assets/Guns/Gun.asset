@@ -18,5 +18,6 @@ MonoBehaviour:
   damage: 50
   attackDelay: 0.01
   speed: 20
-  bulletSize: 2
-  bullet: {fileID: 1770944866230570881, guid: 7f7f1b262dff5d746b469d7c7fe2803a, type: 3}
+  holderCapacity: 2
+  bulletPrefab: {fileID: 1770944866230570881, guid: 7f7f1b262dff5d746b469d7c7fe2803a,
+    type: 3}

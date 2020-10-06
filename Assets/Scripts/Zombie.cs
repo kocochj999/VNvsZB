@@ -20,7 +20,7 @@ public class Zombie : MonoBehaviour
 
     private bool canBite = true;
 
-    private int health;
+    private float health;
     private float biteDamge;
 
     
@@ -33,7 +33,7 @@ public class Zombie : MonoBehaviour
 
         hurtResetTime = 0.2f;
         hurtTimer = 0f;
-        health = 5;
+        health = 200f;
         
     }
 
@@ -62,17 +62,19 @@ public class Zombie : MonoBehaviour
             ChaseFilter();
         }
 
-        if (health == 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
 
     }
-    public void GettingShot()
+    public void GettingShot(Bullet bullet)
     {
-        health--;
+        health -= bullet.damage;
         isHurt = true;
         rb.velocity = Vector2.zero;
+        
+
     }
     private void Chase(Transform target, float moveSpeed)
     {
