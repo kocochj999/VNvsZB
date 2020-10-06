@@ -1,25 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
+using UnityEditor.UIElements;
 using UnityEngine;
+
 public class DamagePopup : MonoBehaviour
 {
-    public static DamagePopup instance;
     [SerializeField]
-    private GameObject damagePrefab;
+    private float timeExist = 2;
+    private TextMeshPro tmp;
 
+    void Start(){
+        tmp = this.gameObject.GetComponent<TextMeshPro>();
+    }
+    
+    void FixedUpdate(){
+        this.gameObject.transform.position += UnityEngine.Vector3.up * Time.deltaTime;
+        if (timeExist>0){
+            timeExist-= Time.deltaTime;
+            if (timeExist>1f){
+                tmp.fontSize += Time.deltaTime;
+            }
+            else{
+                tmp.fontSize -= Time.deltaTime;
+            }
 
-    private void Awake(){
-        if (instance == null){
-            instance = this;
         }
-        else if (instance != this){
+        else{
             Destroy(gameObject);
         }
-    }
-
-    public void Create(float dmg,Vector3 tf){
-        GameObject go = Instantiate(damagePrefab,tf,Quaternion.identity);
-        go.GetComponent<TextMeshPro>().text = dmg.ToString();
     }
 }
