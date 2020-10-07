@@ -122,6 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab6b3c9aba82b443a5d7125f47235d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatingDmg: {fileID: 6475581743246046552, guid: a407ca82280a2bd4fa5cf86225e38f92,
+    type: 3}
+  health: 0
+  biteDamage: 0
+  moveSpeed: 4
 --- !u!50 &-8237965939973594956
 Rigidbody2D:
   serializedVersion: 4
@@ -141,5 +146,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4

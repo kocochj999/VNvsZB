@@ -144,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9896be475ad2de4bb07543436cdd1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatingDmg: {fileID: 6475581743246046552, guid: a407ca82280a2bd4fa5cf86225e38f92,
+    type: 3}
 --- !u!114 &-98933852607076659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,4 +158,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e8a29840c62e649849362f5fe8caa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 50

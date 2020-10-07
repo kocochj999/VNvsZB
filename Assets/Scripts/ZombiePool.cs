@@ -15,7 +15,7 @@ public class ZombiePool : MonoBehaviour
     public BoxCollider2D bottomEdge;
 
     private GameObject[] zombiePool;
-    private Vector2 objectPoolPosition = new Vector2(-20, -35);
+    private Vector2 objectPoolPosition = new Vector2(-30, -50);
     private int poolMaxSize = 20;
     private float spawnRate = 3f;
     private float timeSinceLastSpawn;

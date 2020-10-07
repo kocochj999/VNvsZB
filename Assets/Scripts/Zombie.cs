@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 public class Zombie : MonoBehaviour
 {
+    
+    
     
     private Rigidbody2D rb;
 
@@ -32,11 +35,10 @@ public class Zombie : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         center = GameObject.FindGameObjectWithTag("Center").GetComponent<Transform>();
 
-        hurtResetTime = 0.2f;
+        hurtResetTime = 0.5f;
         hurtTimer = 0f;
         health = 200;
         biteDamage = 40f;
-        
     }
 
     // Update is called once per frame
@@ -57,6 +59,7 @@ public class Zombie : MonoBehaviour
             hurtTimer = 0;
             isHurt = false;
             canChase = true;
+            rb.velocity = Vector2.zero;
         }
 
         if (canChase && !PlayerController.instance.isDead)
@@ -76,6 +79,7 @@ public class Zombie : MonoBehaviour
     }
     public void GettingShot(GameObject gO)
     {
+        
         health-= gO.GetComponent<Bullet>().damage;
         isHurt = true;
         rb.velocity = Vector2.zero;
@@ -103,9 +107,19 @@ public class Zombie : MonoBehaviour
     {
         if(collision.transform.tag == "Player" && PlayerController.instance.vulnerable)
         {
+            isHurt = true;
             rb.velocity = Vector2.zero;
             PlayerController.instance.getBitten(gameObject);
             PlayerController.instance.vulnerable = false;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Player" && PlayerController.instance.vulnerable)
+        {
+            isHurt = true;
+            rb.velocity = Vector2.zero;
+            
         }
     }
 

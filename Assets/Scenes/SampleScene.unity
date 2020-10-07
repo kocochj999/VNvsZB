@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a125d8d203314043983801f0da5d5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: ad5d5f8211425e44b84de1cda9594842, type: 2}
+  weapon: {fileID: 11400000, guid: ceca6a2ae091f1e45ab3031aa1f47e9d, type: 2}
   weaponHolder: []
   damage: 0
   fireRate: 0
@@ -916,7 +916,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.333
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11aa2f4cf99c694786af9f2a04a9f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armor: {fileID: 11400000, guid: bd28f727a9033034f9318b6c2d913544, type: 2}
+  armor: {fileID: 11400000, guid: 172ad6baf2cdb7846998b6e51585e5cd, type: 2}
   armorType: 0
   armorName: 
   armorLevel: 0
@@ -35423,7 +35423,7 @@ GameObject:
   - component: {fileID: 1793957194}
   m_Layer: 9
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: SelfDestroyLine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

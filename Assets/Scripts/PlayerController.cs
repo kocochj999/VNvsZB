@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Text;
 using UnityEditorInternal;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -24,7 +25,6 @@ public class PlayerController : MonoBehaviour
     public bool vulnerable = true;
     public bool isDead = false;
 
-    
 
 
 
@@ -128,6 +128,7 @@ private void Movement()
     
         if(collision.transform.tag == "ZB" && vulnerable)
         {
+            
             ArmorController.instance.isCharged = false;
             vulnerable = false;
             getBitten(collision.gameObject);
@@ -157,6 +158,7 @@ private void Movement()
         WeaponController.instance.Shoot(target, difference, rotationZ);
     }
     
+
 
 
 
