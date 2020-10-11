@@ -19,13 +19,15 @@ public class PlayerController : MonoBehaviour
     private State state = State.normal;
 
     public float health;
+    public float maxHealth;
     private float moveForce = 3.5f;
     private float vulnerableTimer;
-    private float vulnerableResetTime;
+    public float vulnerableResetTime;
     public bool vulnerable = true;
     public bool isDead = false;
 
-
+    //for hat
+    
 
 
 
@@ -48,10 +50,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        health = 100;
+        maxHealth = 100;
+        health = maxHealth;
         vulnerableTimer = 0f;
         vulnerableResetTime = 3f;
-
         
     }
     void Update()
@@ -78,8 +80,13 @@ public class PlayerController : MonoBehaviour
         }
         StateSwitch();
         anim.SetInteger("state", (int)state);
-
+        //hat updates
+        maxHealth = 100 + HatController.instance.addedHealth;
         
+        if(health < maxHealth)
+        {
+            health += HatController.instance.hpPerSec * Time.deltaTime;
+        }
 }
 private void Movement()
     {

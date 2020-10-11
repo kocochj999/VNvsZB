@@ -39,6 +39,7 @@ public class ArmorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this.gameObject.GetComponent<SpriteRenderer>().sprite = armor.icon;
         this.armorType = armor.armorType;
         this.armorName = armor.armorName;
         this.armorLevel = armor.armorLevel;

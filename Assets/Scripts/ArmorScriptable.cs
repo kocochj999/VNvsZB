@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArmorScriptable : ScriptableObject
 {
+    public Sprite icon;
     public int armorType;
     public string armorName;
     public int armorLevel;
@@ -15,8 +16,9 @@ public class ArmorScriptable : ScriptableObject
     {
 
     }
-    public ArmorScriptable(int type, string name, int lvl, float value)
+    public ArmorScriptable(Sprite icon, int type, string name, int lvl, float value)
     {
+        this.icon = icon;
         this.armorType = type;
         this.armorName = name;
         this.armorLevel = lvl;
