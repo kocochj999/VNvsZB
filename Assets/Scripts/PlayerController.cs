@@ -162,7 +162,12 @@ private void Movement()
     }
     public void PullTrigger(Vector3 target, Vector3 difference, float rotationZ)
     {
-        WeaponController.instance.Shoot(target, difference, rotationZ);
+        if (Equipments.instance.weapon!=null)
+        {
+            Equipments.instance.weapon.GetComponent<WeaponController>().Shoot(target, difference, rotationZ);
+        }
+        
+        //WeaponController.instance.Shoot(target, difference, rotationZ);
     }
     
 
