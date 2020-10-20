@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     public bool vulnerable = true;
     public bool isDead = false;
 
-    //for hat
+    //mine
+    public GameObject minePrefab;
     
 
 
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        PlantMine();
         if(!isDead)
         {
             Movement();
@@ -169,7 +171,19 @@ private void Movement()
         
         //WeaponController.instance.Shoot(target, difference, rotationZ);
     }
-    
+    public void PlantMine()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            GameObject mine = Instantiate(minePrefab) as GameObject;
+            mine.transform.position = this.transform.position;
+        }
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            GameObject mine = Instantiate(minePrefab) as GameObject;
+            mine.transform.position = this.transform.position;
+        }
+    }
 
 
 

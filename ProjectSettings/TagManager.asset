@@ -11,6 +11,8 @@ TagManager:
   - Confiner
   - BulletStart1
   - BulletStart2
+  - Edge
+  - Mine
   layers:
   - Default
   - TransparentFX

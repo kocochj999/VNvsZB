@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 108949315}
   m_Layer: 0
   m_Name: Right
-  m_TagString: SelfDestroyLine
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,6 +251,8 @@ MonoBehaviour:
   vulnerableResetTime: 0
   vulnerable: 1
   isDead: 0
+  minePrefab: {fileID: 2794959719055392333, guid: 596bc1e0bbb501a4aa94513955b52391,
+    type: 3}
 --- !u!212 &366462234
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -491,7 +493,7 @@ GameObject:
   - component: {fileID: 399141089}
   m_Layer: 0
   m_Name: Left
-  m_TagString: SelfDestroyLine
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -548,7 +550,7 @@ GameObject:
   - component: {fileID: 478749744}
   m_Layer: 0
   m_Name: Btm
-  m_TagString: SelfDestroyLine
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,7 +607,7 @@ GameObject:
   - component: {fileID: 496572580}
   m_Layer: 0
   m_Name: Top
-  m_TagString: SelfDestroyLine
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

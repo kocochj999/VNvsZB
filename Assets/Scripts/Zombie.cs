@@ -84,6 +84,12 @@ public class Zombie : MonoBehaviour
         isHurt = true;
         rb.velocity = Vector2.zero;
     }
+    public void GetExploded(GameObject gO)
+    {
+        health -= gO.GetComponent<Mine>().mineDamage;
+        isHurt = true;
+        rb.velocity = Vector2.zero;
+    }
     private void Chase(Transform target, float moveSpeed)
     {
         
