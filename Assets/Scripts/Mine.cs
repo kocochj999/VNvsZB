@@ -15,7 +15,7 @@ public class Mine : MonoBehaviour
     void Start()
     {
         mineDamage = 50f;
-        explodeRadius = 1.5f;
+        explodeRadius = 1f;
         anim = GetComponent<Animator>();
     }
 

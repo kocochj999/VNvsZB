@@ -94,6 +94,7 @@ public class Zombie : MonoBehaviour
     {
         
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        //transform.rotation = 
 
     }
     private void ChaseFilter()
