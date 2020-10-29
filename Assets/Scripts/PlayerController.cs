@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
 
     //mine
     public GameObject minePrefab;
+
+    //HealthBar
+    public HealthBar healthBar;
     
 
 
@@ -59,6 +62,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        healthBar.setMaxHealth(maxHealth);
+        healthBar.setHealthBar(health);
         PlantMine();
         if(!isDead)
         {

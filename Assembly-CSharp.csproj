@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\Hat.cs" />
     <Compile Include="Assets\Scripts\HatController.cs" />
+    <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Mine.cs" />
     <Compile Include="Assets\Scripts\MuCoi.cs" />
     <Compile Include="Assets\Scripts\MuCoiLa.cs" />

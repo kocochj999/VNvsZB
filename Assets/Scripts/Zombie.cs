@@ -27,6 +27,9 @@ public class Zombie : MonoBehaviour
     public float biteDamage;
     public float moveSpeed = 4;
 
+    //HealthBar
+    public HealthBar healthBar;
+
     
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,7 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthBar.setHealthBar(health);
         if (Vector2.Distance(transform.position, player.position) >= 14.5f)
         {
             canChase = true;
@@ -92,9 +96,11 @@ public class Zombie : MonoBehaviour
     }
     private void Chase(Transform target, float moveSpeed)
     {
-        
+        Vector3 difference = target.transform.position - transform.position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-        //transform.rotation = 
+        
 
     }
     private void ChaseFilter()
@@ -129,5 +135,5 @@ public class Zombie : MonoBehaviour
             
         }
     }
-
+    
 }
