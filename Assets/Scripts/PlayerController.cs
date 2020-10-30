@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         
         if(health < maxHealth)
         {
-            health += HatController.instance.hpPerSec * Time.deltaTime;
+            health += Equipments.instance.hat.GetComponent<HatController>().hpPerSec * Time.deltaTime;
         }
 }
 private void Movement()

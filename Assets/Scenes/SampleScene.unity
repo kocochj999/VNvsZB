@@ -35580,8 +35580,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 546845339}
-  hat: {fileID: 5239939352692639312, guid: f3f0ca46b241f4f44ad54a35e1d3e8d1, type: 3}
-  armor: {fileID: 3831195057760315091, guid: 440061776ff3e17428cc52d979ed5a80, type: 3}
+  hat: {fileID: 1996487764}
+  armor: {fileID: 800171031}
 --- !u!1 &1698748418
 GameObject:
   m_ObjectHideFlags: 0
