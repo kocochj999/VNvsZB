@@ -81,7 +81,6 @@ public class WeaponController : MonoBehaviour
         c.transform.position = BulletStart[1].transform.position;
         c.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         c.GetComponent<Rigidbody2D>().velocity = direction * speed;
-        Debug.Log("oke");
     }
     
 }

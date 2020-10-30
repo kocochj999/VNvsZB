@@ -16,7 +16,7 @@ public class DamagePopup : MonoBehaviour
     }
     
     void FixedUpdate(){
-        this.gameObject.transform.position += UnityEngine.Vector3.up * Time.deltaTime;
+        this.gameObject.transform.position += UnityEngine.Vector3.up * Time.deltaTime * 1.2f;
         if (timeExist>0){
             timeExist-= Time.deltaTime;
             if (timeExist>1f){

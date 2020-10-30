@@ -56,25 +56,21 @@ public class ZombiePool : MonoBehaviour
             case 1:
                 float ySpawnPosLeft = Random.Range((topEdge.offset.y) - 5, (bottomEdge.offset.y) + 5);
                 float xSpawnPosLeft = leftEdge.offset.x + 5;
-                Debug.Log("1 - " + xSpawnPosLeft + "-" + ySpawnPosLeft);
                 spawnPostition = new Vector2(xSpawnPosLeft, ySpawnPosLeft);
                 break;
             case 2:
                 float ySpawnPosRight = Random.Range(topEdge.offset.y - 5, bottomEdge.offset.y + 5);
                 float xSpawnPosRight = rightEdge.offset.x - 5;
-                Debug.Log("2- " + xSpawnPosRight + "-" + ySpawnPosRight);
                 spawnPostition = new Vector2(xSpawnPosRight, ySpawnPosRight);
                 break;
             case 3:
                 float ySpawnPosTop = topEdge.offset.y - 5;
                 float xSpawnPosTop = Random.Range(leftEdge.offset.x + 5, rightEdge.offset.x - 5);
-                Debug.Log("3- " + xSpawnPosTop + "-" + ySpawnPosTop);
                 spawnPostition = new Vector2(xSpawnPosTop, ySpawnPosTop);
                 break;
             case 4:
                 float ySpawnPosBtm = bottomEdge.offset.y + 5;
                 float xSpawnPosBtm = Random.Range(leftEdge.offset.x + 5, rightEdge.offset.x - 5);
-                Debug.Log("4 - " + xSpawnPosBtm + "-" + ySpawnPosBtm);
                 spawnPostition = new Vector2(xSpawnPosBtm, ySpawnPosBtm);
                 break;
         }
