@@ -17,7 +17,11 @@ public class HealthBar : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (owner!=null)
+        {
         transform.position = owner.position + new Vector3(0, 1f) ;
+        }
+        
     }
     public void setMaxHealth(float maxHealth)
     {
