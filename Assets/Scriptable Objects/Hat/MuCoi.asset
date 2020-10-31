@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367de0c8c3e17df488ebea00be5f553b, type: 3}
   m_Name: MuCoi
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b1b7ce61e8f934d4c86ac5d89fa01bdf, type: 3}
   hatName: Mu Coi
   hatType: 1
-  addedHealth: 100
+  addedHealth: 50

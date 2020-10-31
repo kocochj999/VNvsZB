@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8461789609e5d47bd57e7a38589646, type: 3}
   m_Name: MuCoiLa
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -5926832121448541893, guid: 971a29e6ab6b8694f9b7b7dd2df73d38, type: 3}
   hatName: Mu Coi La
   hatType: 3
   addHealth: 50
-  hpPerSec: 2
+  hpPerSec: 1
