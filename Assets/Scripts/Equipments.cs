@@ -42,7 +42,7 @@ public class Equipments : MonoBehaviour
         }
         else
         {
-            //HatController.instance.GetComponent<SpriteRenderer>().sprite = HatController.instance.hat.icon;
+           // HatController.instance.GetComponent<SpriteRenderer>().sprite = HatController.instance.hat.icon;
             
         }
         if(armor == null)

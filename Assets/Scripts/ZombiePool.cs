@@ -47,31 +47,31 @@ public class ZombiePool : MonoBehaviour
     private Vector2 RandomPosition()
     {
         int minPos = 1;
-        int maxPos = 5;
+        int maxPos = 4;
         int randomPos = Random.Range(minPos, maxPos);
         Vector2 spawnPostition = Vector2.zero;
         
         switch(randomPos)
         {
             case 1:
-                float ySpawnPosLeft = Random.Range((topEdge.offset.y) - 5, (bottomEdge.offset.y) + 5);
-                float xSpawnPosLeft = leftEdge.offset.x + 5;
+                float ySpawnPosLeft = Random.Range((topEdge.offset.y) - 10, (bottomEdge.offset.y) + 10);
+                float xSpawnPosLeft = leftEdge.offset.x + 10;
                 spawnPostition = new Vector2(xSpawnPosLeft, ySpawnPosLeft);
                 break;
             case 2:
-                float ySpawnPosRight = Random.Range(topEdge.offset.y - 5, bottomEdge.offset.y + 5);
-                float xSpawnPosRight = rightEdge.offset.x - 5;
+                float ySpawnPosRight = Random.Range(topEdge.offset.y - 10, bottomEdge.offset.y + 10);
+                float xSpawnPosRight = rightEdge.offset.x - 10;
 
                 spawnPostition = new Vector2(xSpawnPosRight, ySpawnPosRight);
                 break;
             case 3:
-                float ySpawnPosTop = topEdge.offset.y - 5;
-                float xSpawnPosTop = Random.Range(leftEdge.offset.x + 5, rightEdge.offset.x - 5);
+                float ySpawnPosTop = topEdge.offset.y - 10;
+                float xSpawnPosTop = Random.Range(leftEdge.offset.x + 10, rightEdge.offset.x - 10);
                 spawnPostition = new Vector2(xSpawnPosTop, ySpawnPosTop);
                 break;
             case 4:
-                float ySpawnPosBtm = bottomEdge.offset.y + 5;
-                float xSpawnPosBtm = Random.Range(leftEdge.offset.x + 5, rightEdge.offset.x - 5);
+                float ySpawnPosBtm = bottomEdge.offset.y + 10;
+                float xSpawnPosBtm = Random.Range(leftEdge.offset.x + 10, rightEdge.offset.x - 10);
                 spawnPostition = new Vector2(xSpawnPosBtm, ySpawnPosBtm);
                 break;
         }

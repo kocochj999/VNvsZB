@@ -73,7 +73,8 @@ public class Zombie : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            //SDestroy(gameObject);
+            Destroy(this.transform.parent.gameObject);
         }
         if(PlayerController.instance.isDead)
         {

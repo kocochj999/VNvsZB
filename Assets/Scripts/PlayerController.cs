@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         StateSwitch();
         anim.SetInteger("state", (int)state);
         //hat updates
-        maxHealth = 100 + HatController.instance.addedHealth;
+        maxHealth = 100 + Equipments.instance.hat.GetComponent<HatController>().addedHealth;
         
         if(health < maxHealth)
         {
@@ -123,18 +123,18 @@ private void Movement()
     
     public void getBitten(GameObject zombieObject)
     {
-        if(ArmorController.instance.isCharged)
+        if(Equipments.instance.armor.GetComponent<ArmorController>().isCharged)
         {
             health -= (zombieObject.GetComponent<Zombie>().biteDamage - ArmorController.instance.armorValue - ArmorController.instance.addedValue);
-            ArmorController.instance.isCharged = false;
-            ArmorController.instance.shieldTimer = 0;
+            Equipments.instance.armor.GetComponent<ArmorController>().isCharged = false;
+            Equipments.instance.armor.GetComponent<ArmorController>().shieldTimer = 0;
         }
         else
         {
-            health -= (zombieObject.GetComponent<Zombie>().biteDamage - ArmorController.instance.armorValue);
+            health -= (zombieObject.GetComponent<Zombie>().biteDamage - Equipments.instance.armor.GetComponent<ArmorController>().armorValue);
         }
         
-        zombieObject.GetComponent<Zombie>().health -= ArmorController.instance.armorDamage;
+        zombieObject.GetComponent<Zombie>().health -= Equipments.instance.armor.GetComponent<ArmorController>().armorDamage;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -142,8 +142,8 @@ private void Movement()
     
         if(collision.transform.tag == "ZB" && vulnerable)
         {
-            
-            ArmorController.instance.isCharged = false;
+
+            Equipments.instance.armor.GetComponent<ArmorController>().isCharged = false;
             vulnerable = false;
             getBitten(collision.gameObject);
         }
