@@ -9,13 +9,18 @@ using Vector2 = UnityEngine.Vector2;
 public class ZombiePool : MonoBehaviour
 {
     public GameObject zombiePrefab;
-    public BoxCollider2D leftEdge;
-    public BoxCollider2D rightEdge;
-    public BoxCollider2D topEdge;
-    public BoxCollider2D bottomEdge;
+
+    public GameObject spawn1;
+    public GameObject spawn2;
+    public GameObject spawn3;
+    public GameObject spawn4;
+    public GameObject spawn5;
+    public GameObject spawn6;
+    public GameObject spawn7;
+    public GameObject spawn8;
+    public GameObject initSpawnPoint;
 
     private GameObject[] zombiePool;
-    private Vector2 objectPoolPosition = new Vector2(-30, -50);
     private int poolMaxSize = 20;
     private float spawnRate = 3f;
     private float timeSinceLastSpawn;
@@ -28,7 +33,7 @@ public class ZombiePool : MonoBehaviour
         zombiePool = new GameObject[poolMaxSize];
         for(int i = 0; i < poolMaxSize; i++ )
         {
-            zombiePool[i] = (GameObject)Instantiate(zombiePrefab, objectPoolPosition, Quaternion.identity);
+            zombiePool[i] = (GameObject)Instantiate(zombiePrefab, initSpawnPoint.transform.position, Quaternion.identity);
 
         }
     }
@@ -46,33 +51,37 @@ public class ZombiePool : MonoBehaviour
     }
     private Vector2 RandomPosition()
     {
-        int minPos = 1;
-        int maxPos = 4;
-        int randomPos = Random.Range(minPos, maxPos);
         Vector2 spawnPostition = Vector2.zero;
+        int minPos = 1;
+        int maxPos = 8;
+        int randomPos = Random.Range(minPos, maxPos);
+        
         
         switch(randomPos)
         {
             case 1:
-                float ySpawnPosLeft = Random.Range((topEdge.offset.y) - 10, (bottomEdge.offset.y) + 10);
-                float xSpawnPosLeft = leftEdge.offset.x + 10;
-                spawnPostition = new Vector2(xSpawnPosLeft, ySpawnPosLeft);
+                spawnPostition = spawn1.transform.position;
                 break;
             case 2:
-                float ySpawnPosRight = Random.Range(topEdge.offset.y - 10, bottomEdge.offset.y + 10);
-                float xSpawnPosRight = rightEdge.offset.x - 10;
-
-                spawnPostition = new Vector2(xSpawnPosRight, ySpawnPosRight);
+                spawnPostition = spawn2.transform.position;
                 break;
             case 3:
-                float ySpawnPosTop = topEdge.offset.y - 10;
-                float xSpawnPosTop = Random.Range(leftEdge.offset.x + 10, rightEdge.offset.x - 10);
-                spawnPostition = new Vector2(xSpawnPosTop, ySpawnPosTop);
+                spawnPostition = spawn3.transform.position;
                 break;
             case 4:
-                float ySpawnPosBtm = bottomEdge.offset.y + 10;
-                float xSpawnPosBtm = Random.Range(leftEdge.offset.x + 10, rightEdge.offset.x - 10);
-                spawnPostition = new Vector2(xSpawnPosBtm, ySpawnPosBtm);
+                spawnPostition = spawn4.transform.position;
+                break;
+            case 5:
+                spawnPostition = spawn5.transform.position;
+                break;
+            case 6:
+                spawnPostition = spawn6.transform.position;
+                break;
+            case 7:
+                spawnPostition = spawn7.transform.position;
+                break;
+            case 8:
+                spawnPostition = spawn8.transform.position;
                 break;
         }
         return spawnPostition;
