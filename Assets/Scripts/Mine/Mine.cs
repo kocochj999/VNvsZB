@@ -10,12 +10,13 @@ public class Mine : MonoBehaviour
     public float explodeRadius;
     public GameObject floatingDmg;
     private Animator anim;
+    private bool canSpread = true;
 
     // Start is called before the first frame update
     void Start()
     {
         mineDamage = 50f;
-        explodeRadius = 1f;
+        explodeRadius = 2f;
         anim = GetComponent<Animator>();
     }
 
@@ -31,7 +32,7 @@ public class Mine : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.tag == "ZB")
+        if (collision.gameObject.tag == "ZB" && canSpread)
         {
             anim.SetTrigger("explode");
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explodeRadius);
@@ -49,6 +50,7 @@ public class Mine : MonoBehaviour
                 
                 
             }
+            canSpread = false;
             
             
         }
