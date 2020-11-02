@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class ZombiePool : MonoBehaviour
 {
@@ -49,9 +50,9 @@ public class ZombiePool : MonoBehaviour
             currentZombie++;
         }
     }
-    private Vector2 RandomPosition()
+    private Vector3 RandomPosition()
     {
-        Vector2 spawnPostition = Vector2.zero;
+        Vector3 spawnPostition = new Vector3(0,0);
         int minPos = 1;
         int maxPos = 8;
         int randomPos = Random.Range(minPos, maxPos);

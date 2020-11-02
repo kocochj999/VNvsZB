@@ -48,7 +48,7 @@ public class Zombie : MonoBehaviour
     void Update()
     {
         healthBar.setHealthBar(health);
-        if (Vector2.Distance(transform.position, player.position) >= 14.5f && Vector2.Distance(transform.position, player.position) < 30f)
+        if (Vector2.Distance(transform.position, player.position) >= 14.5f && Vector2.Distance(transform.position, player.position) < 45f)
         {
             canChase = true;
         }

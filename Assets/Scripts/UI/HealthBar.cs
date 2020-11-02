@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
         }
         if (owner!=null)
         {
-        transform.position = owner.position + new Vector3(0, 1f) ;
+        transform.position = owner.position + new Vector3(0,0.75f);
         }
         
     }
