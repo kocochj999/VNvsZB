@@ -8,11 +8,9 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Zombie : MonoBehaviour
 {
-    
-    
-    
     private Rigidbody2D rb;
 
+    [SerializeField]
     private Transform player;
     private Transform center;
     private bool canChase = false;
@@ -35,7 +33,7 @@ public class Zombie : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        
         center = GameObject.FindGameObjectWithTag("Center").GetComponent<Transform>();
 
         hurtResetTime = 0.5f;

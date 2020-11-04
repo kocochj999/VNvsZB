@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Equipments\Hat\NonLa.cs" />
      <Compile Include="Assets\Scripts\GameControl\GameController.cs" />
      <Compile Include="Assets\Scripts\GameControl\ZombiePool.cs" />
+     <Compile Include="Assets\Scripts\GameUI\GUIController.cs" />
      <Compile Include="Assets\Scripts\Mine\Mine.cs" />
      <Compile Include="Assets\Scripts\Networking\HostGame.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
