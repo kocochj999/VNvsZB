@@ -11,44 +11,42 @@ public class Zombie : MonoBehaviour
     
     
     
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
-    private Transform player;
-    private Transform center;
-    private bool canChase = false;
-    private bool isHurt = false;
-    private float hurtTimer;
-    private float hurtResetTime;
-    private float maxDistance = 10f;
+    public Transform player;
+    public Transform center;
+    public bool canChase = false;
+    public bool isHurt = false;
+    
+    private float maxDistance = 12f;
 
     //private bool canBite = true;
 
     public float health;
     public float biteDamage;
-    public float moveSpeed = 4;
+    public float hurtTimer;
+    public float hurtResetTime;
+    public float moveSpeed;
 
     //HealthBar
     public HealthBar healthBar;
 
     
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         center = GameObject.FindGameObjectWithTag("Center").GetComponent<Transform>();
 
-        hurtResetTime = 0.5f;
-        hurtTimer = 0f;
-        health = 200;
-        biteDamage = 40f;
+        healthBar.setMaxHealth(health);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         healthBar.setHealthBar(health);
-        if (Vector2.Distance(transform.position, player.position) >= 14.5f && Vector2.Distance(transform.position, player.position) < 45f)
+        if (Vector2.Distance(transform.position, player.position) < 45f)
         {
             canChase = true;
         }
@@ -73,7 +71,6 @@ public class Zombie : MonoBehaviour
 
         if (health <= 0)
         {
-            //SDestroy(gameObject);
             Destroy(this.transform.parent.gameObject);
         }
         if(PlayerController.instance.isDead)
@@ -95,7 +92,7 @@ public class Zombie : MonoBehaviour
         isHurt = true;
         rb.velocity = Vector2.zero;
     }
-    private void Chase(Transform target, float moveSpeed)
+    public void Chase(Transform target, float moveSpeed)
     {
         Vector3 difference = target.transform.position - transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
@@ -104,7 +101,7 @@ public class Zombie : MonoBehaviour
         
 
     }
-    private void ChaseFilter()
+    public void ChaseFilter()
     {
         
         if (Vector2.Distance(transform.position, player.position) >= maxDistance)
@@ -117,7 +114,7 @@ public class Zombie : MonoBehaviour
 
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    public void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.transform.tag == "Player" && PlayerController.instance.vulnerable)
         {
@@ -127,7 +124,7 @@ public class Zombie : MonoBehaviour
             PlayerController.instance.vulnerable = false;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Player" && PlayerController.instance.vulnerable)
         {

@@ -1402,6 +1402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 8911453760080013005, guid: 0fc2632c510ee95418b5a9ce97afcc15,
     type: 3}
+  zombieBossPrefab: {fileID: 2729292690686474744, guid: 730d7b6f8a690bc41a4c4a827701a58e,
+    type: 3}
   spawn1: {fileID: 1638170705}
   spawn2: {fileID: 1880747489}
   spawn3: {fileID: 689451937}

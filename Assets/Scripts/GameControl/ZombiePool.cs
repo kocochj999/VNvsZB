@@ -10,6 +10,7 @@ using Vector3 = UnityEngine.Vector3;
 public class ZombiePool : MonoBehaviour
 {
     public GameObject zombiePrefab;
+    public GameObject zombieBossPrefab;
 
     public GameObject spawn1;
     public GameObject spawn2;
@@ -22,8 +23,8 @@ public class ZombiePool : MonoBehaviour
     public GameObject initSpawnPoint;
 
     private GameObject[] zombiePool;
-    private int poolMaxSize = 20;
-    private float spawnRate = 3f;
+    private int poolMaxSize = 25;
+    private float spawnRate = 2f;
     private float timeSinceLastSpawn;
     private int currentZombie = 0;
 
@@ -37,6 +38,8 @@ public class ZombiePool : MonoBehaviour
             zombiePool[i] = (GameObject)Instantiate(zombiePrefab, initSpawnPoint.transform.position, Quaternion.identity);
 
         }
+        zombieBossPrefab = (GameObject)Instantiate(zombieBossPrefab, initSpawnPoint.transform.position, Quaternion.identity);
+        
     }
 
     // Update is called once per frame
@@ -48,6 +51,13 @@ public class ZombiePool : MonoBehaviour
             timeSinceLastSpawn = 0f;
             zombiePool[currentZombie].transform.position = RandomPosition();
             currentZombie++;
+        }
+        if(currentZombie == poolMaxSize)
+        {
+            currentZombie++;
+            zombieBossPrefab.transform.position = RandomPosition();
+
+            
         }
     }
     private Vector3 RandomPosition()

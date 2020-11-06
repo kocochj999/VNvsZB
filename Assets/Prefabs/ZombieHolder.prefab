@@ -122,8 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab6b3c9aba82b443a5d7125f47235d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  biteDamage: 0
+  health: 200
+  biteDamage: 40
+  hurtTimer: 0
+  hurtResetTime: 0.5
   moveSpeed: 4
   healthBar: {fileID: 1420537600693330335}
 --- !u!50 &4483959905415224509

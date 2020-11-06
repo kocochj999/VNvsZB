@@ -340,7 +340,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2729292691099902610}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 30.334301}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_Children:
   - {fileID: 2729292689855338272}
@@ -349,7 +349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -5.55, y: 0.91}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 36, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2729292691099902614
@@ -423,6 +423,7 @@ GameObject:
   - component: {fileID: 2729292691105358715}
   - component: {fileID: 2729292691105358714}
   - component: {fileID: 2729292691105358718}
+  - component: {fileID: 2148696824661282508}
   - component: {fileID: 2729292691105358717}
   - component: {fileID: 2729292691105358716}
   m_Layer: 0
@@ -440,7 +441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2729292691105358713}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5215764, y: -0.14693046, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 2729292690686474745}
@@ -522,7 +523,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2729292691105358717
+--- !u!114 &2148696824661282508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -531,12 +532,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 2729292691105358713}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b74e542396ad8a4fbf30fb23884ab23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  player: {fileID: 0}
+  center: {fileID: 0}
+  canChase: 0
+  isHurt: 0
+  health: 1000
+  biteDamage: 100
+  hurtTimer: 0
+  hurtResetTime: 0.5
+  moveSpeed: 8
+  healthBar: {fileID: 2729292689855338273}
+--- !u!114 &2729292691105358717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729292691105358713}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ab6b3c9aba82b443a5d7125f47235d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
-  biteDamage: 0
-  moveSpeed: 4
+  rb: {fileID: 0}
+  player: {fileID: 0}
+  center: {fileID: 0}
+  canChase: 0
+  isHurt: 0
+  health: 1000
+  biteDamage: 100
+  hurtTimer: 0
+  hurtResetTime: 0.5
+  moveSpeed: 5
   healthBar: {fileID: 2729292689855338273}
 --- !u!50 &2729292691105358716
 Rigidbody2D:
