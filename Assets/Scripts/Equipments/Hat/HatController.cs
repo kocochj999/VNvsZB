@@ -31,7 +31,7 @@ public class HatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this.gameObject.GetComponent<SpriteRenderer>().sprite = hat.icon;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = hat.icon;
         
         if(hat.type == 1)
         {

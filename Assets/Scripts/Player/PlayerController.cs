@@ -31,12 +31,6 @@ public class PlayerController : MonoBehaviour
 
     //HealthBar
     public HealthBar healthBar;
-    
-
-
-
-
-
 
     private void Awake()
     {
@@ -142,14 +136,34 @@ private void Movement()
     
         if(collision.transform.tag == "ZB" && vulnerable)
         {
-
             Equipments.instance.armor.GetComponent<ArmorController>().isCharged = false;
             vulnerable = false;
             getBitten(collision.gameObject);
         }
     }
   
-        
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("DroppingItem"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                //other.GetComponent<ItemDropper>().theChosenOne;
+                ItemScriptable ISItem = (ItemScriptable) other.GetComponent<ItemDropper>().theChosenOne;
+                if (ISItem.typeOfItem =="Gun")
+                {
+                    Weapons wp = (Weapons) ISItem;
+                    WeaponController.instance.weapon = wp;
+                }
+                else if (ISItem.typeOfItem =="Hat")
+                {
+                    Hat hat = (Hat) ISItem;
+                    HatController.instance.hat = hat;
+                }
+            }
+        }
+    }
+
     private void StateSwitch()
     {
         if(!vulnerable)

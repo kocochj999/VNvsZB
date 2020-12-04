@@ -13,6 +13,7 @@ TagManager:
   - BulletStart2
   - Edge
   - Mine
+  - DroppingItem
   layers:
   - Default
   - TransparentFX

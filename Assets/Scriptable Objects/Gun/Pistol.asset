@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: c1201ecdac022fd4cb06416b51752c74, type: 3}
   name: sung luc
-  type: 0
+  typeOfItem: Gun
+  type: 1
   damage: 30
   fireRate: 0.5
   fireRange: 20

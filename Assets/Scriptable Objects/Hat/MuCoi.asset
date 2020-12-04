@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: b1b7ce61e8f934d4c86ac5d89fa01bdf, type: 3}
   name: Mu coi
+  typeOfItem: Hat
   type: 1
   addedHealth: 50

@@ -6,6 +6,7 @@ public abstract class ItemScriptable : ScriptableObject
 {
     public Sprite icon;
     public string name;
+    public string typeOfItem;
 
     public ItemScriptable()
     {

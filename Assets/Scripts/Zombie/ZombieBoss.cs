@@ -10,6 +10,17 @@ public class ZombieBoss : Zombie
     public override void Dead()
     {
         base.Dead();
-        Instantiate(ItemDroppingPrefab, this.gameObject.transform.position,Quaternion.identity);
+        RandomInstantiateDroppingItem();
+    }
+
+    private void RandomInstantiateDroppingItem()
+    {
+        
+        int numb = Random.Range(0,100);
+        Debug.Log(numb);
+        if (numb%3==0)
+        {
+            Instantiate(ItemDroppingPrefab, this.gameObject.transform.position,Quaternion.identity);
+        }
     }
 }

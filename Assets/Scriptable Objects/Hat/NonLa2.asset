@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   name: 
+  typeOfItem: Hat
   type: 2
   hpPerSec: 2

@@ -6,7 +6,6 @@ public class ItemDropper : MonoBehaviour
 {
     [SerializeField]
     private ScriptableObject[] SOList;
-    [SerializeField]
     public ScriptableObject theChosenOne;
 
     void Awake()
@@ -23,6 +22,11 @@ public class ItemDropper : MonoBehaviour
             ItemScriptable ISItem = (ItemScriptable) theChosenOne;
             this.gameObject.GetComponent<SpriteRenderer>().sprite =  ISItem.icon;
         }
+    }
+
+    public void DestroyItem()
+    {
+        Destroy(this.gameObject);
     }
 
 }
