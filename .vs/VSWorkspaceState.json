@@ -3,8 +3,9 @@
     "",
     "\\Assets",
     "\\Assets\\Scripts",
-    "\\Assets\\Scripts\\Equipments"
+    "\\Assets\\Scripts\\Equipments",
+    "\\Assets\\Scripts\\UI"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\Equipments\\ItemScriptable.cs",
+  "SelectedNode": "\\Assets\\Scripts\\UI\\DropItemBar.cs",
   "PreviewInSolutionExplorer": false
 }

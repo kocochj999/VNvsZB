@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: NonLa2
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  hatName: Non La
-  hatType: 2
+  name: 
+  type: 2
   hpPerSec: 2

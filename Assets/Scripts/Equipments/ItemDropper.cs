@@ -7,9 +7,9 @@ public class ItemDropper : MonoBehaviour
     [SerializeField]
     private ScriptableObject[] SOList;
     [SerializeField]
-    private ScriptableObject theChosenOne;
+    public ScriptableObject theChosenOne;
 
-    void Start ()
+    void Awake()
     {
         Random rd = new Random();
         int num = Random.Range(0,SOList.Length);
