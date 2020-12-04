@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ZombieBoss : Zombie
 {
+    public GameObject ItemDroppingPrefab;
     
-    // Start is called before the first frame update
     
+    public override void Dead()
+    {
+        base.Dead();
+        Instantiate(ItemDroppingPrefab, this.gameObject.transform.position,Quaternion.identity);
+    }
 }

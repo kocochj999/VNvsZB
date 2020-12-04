@@ -71,7 +71,7 @@ public class Zombie : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(this.transform.parent.gameObject);
+            Dead();
         }
         if(PlayerController.instance.isDead)
         {
@@ -79,6 +79,12 @@ public class Zombie : MonoBehaviour
         }
 
     }
+
+    public virtual void Dead()
+    {
+        Destroy(this.transform.parent.gameObject);
+    }
+
     public void GettingShot(GameObject gO)
     {
         
@@ -86,12 +92,14 @@ public class Zombie : MonoBehaviour
         isHurt = true;
         rb.velocity = Vector2.zero;
     }
+
     public void GetExploded(GameObject gO)
     {
         health -= gO.GetComponent<Mine>().mineDamage;
         isHurt = true;
         rb.velocity = Vector2.zero;
     }
+
     public void Chase(Transform target, float moveSpeed)
     {
         Vector3 difference = target.transform.position - transform.position;
@@ -101,6 +109,7 @@ public class Zombie : MonoBehaviour
         
 
     }
+
     public void ChaseFilter()
     {
         
@@ -114,6 +123,7 @@ public class Zombie : MonoBehaviour
 
         }
     }
+
     public void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.transform.tag == "Player" && PlayerController.instance.vulnerable)
@@ -124,6 +134,7 @@ public class Zombie : MonoBehaviour
             PlayerController.instance.vulnerable = false;
         }
     }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Player" && PlayerController.instance.vulnerable)

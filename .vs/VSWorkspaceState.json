@@ -4,8 +4,9 @@
     "\\Assets",
     "\\Assets\\Scripts",
     "\\Assets\\Scripts\\Equipments",
-    "\\Assets\\Scripts\\UI"
+    "\\Assets\\Scripts\\UI",
+    "\\Assets\\Scripts\\Zombie"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\UI\\DropItemBar.cs",
+  "SelectedNode": "\\Assets\\Scripts\\Zombie\\ItemDroppingSpawner.cs",
   "PreviewInSolutionExplorer": false
 }

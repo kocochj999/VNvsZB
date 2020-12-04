@@ -545,6 +545,8 @@ MonoBehaviour:
   hurtResetTime: 0.5
   moveSpeed: 8
   healthBar: {fileID: 2729292689855338273}
+  ItemDroppingPrefab: {fileID: 4457831916992450587, guid: bb6135adc64419844bec3999f86a3c9f,
+    type: 3}
 --- !u!50 &2729292691105358716
 Rigidbody2D:
   serializedVersion: 4
