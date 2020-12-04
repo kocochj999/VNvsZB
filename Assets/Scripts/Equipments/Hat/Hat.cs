@@ -2,34 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Hat : ScriptableObject
+public class Hat : ItemScriptable
 {
-    public Sprite icon;
-    public string hatName;
-    public int hatType;
-    
-    
+    public int type;
 
     public Hat()
     {
-
-    }
-    public Hat(Sprite icon, string name, int type)
-    {
-        this.icon = icon;
-        this.hatName = name;
-        this.hatType = type;
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    
     }
 
-    // Update is called once per frame
-    void Update()
+    public Hat(int type, Sprite icon, string name) : base(icon,name)
     {
-        
+        this.type = type;
     }
 }

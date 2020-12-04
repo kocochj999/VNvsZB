@@ -33,18 +33,18 @@ public class HatController : MonoBehaviour
     {
         //this.gameObject.GetComponent<SpriteRenderer>().sprite = hat.icon;
         
-        if(hat.hatType == 1)
+        if(hat.type == 1)
         {
             MuCoi muCoi = (MuCoi)hat;
 
             this.addedHealth = muCoi.addedHealth;
         }
-        if(hat.hatType == 2)
+        if(hat.type == 2)
         {
             NonLa nonLa = (NonLa)hat;
             this.hpPerSec = nonLa.hpPerSec;
         }
-        if (hat.hatType == 3)
+        if (hat.type == 3)
         {
             MuCoiLa muCoiLa = (MuCoiLa)hat;
             this.hpPerSec = muCoiLa.hpPerSec;

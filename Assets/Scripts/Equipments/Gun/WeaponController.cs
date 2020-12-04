@@ -49,7 +49,7 @@ public class WeaponController : MonoBehaviour
         this.fireRange = weapon.fireRange;
         this.bulletSpeed = weapon.bulletSpeed;
 
-        if (weapon.weaponType == 1) //neu weapon la Gun
+        if (weapon.type == 1) //neu weapon la Gun
         {
             Gun gun = (Gun) weapon;
             this.bulletPrefab = gun.bulletPrefab;

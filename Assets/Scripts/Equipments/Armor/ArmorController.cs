@@ -40,21 +40,21 @@ public class ArmorController : MonoBehaviour
     void Update()
     {
         //this.gameObject.GetComponent<SpriteRenderer>().sprite = armor.icon;
-        this.armorType = armor.armorType;
-        this.armorName = armor.armorName;
+        this.armorType = armor.type;
+        this.armorName = armor.name;
         this.armorLevel = armor.armorLevel;
         this.armorValue = armor.armorValue;
 
-        if (armor.armorType == 1)
+        if (armor.type == 1)
         {
 
         }
-        if (armor.armorType == 2)
+        if (armor.type == 2)
         {
             Blademail blademail = (Blademail)armor;
             this.armorDamage = blademail.armorDamage;
         }
-        if (armor.armorType == 3)
+        if (armor.type == 3)
         {
             Shield shield = (Shield)armor;
             this.addedValue = shield.addedValue;
