@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class ZombieBoss : Zombie
 {
@@ -10,6 +14,11 @@ public class ZombieBoss : Zombie
     public bool castingSkill = false;
     public float castingSkillTime = 2f;
     public float castingTimer = 0f;
+
+    //Skill properties
+    public GameObject skillStart;
+    public GameObject skillPrefab;
+    public float skillSpeed = 1.5f;
 
 
     public GameObject ItemDroppingPrefab;
@@ -46,6 +55,14 @@ public class ZombieBoss : Zombie
     {
         castingSkill = true;
         //cast skill with target is player
+        Vector3 difference = player.position - base.transform.position ;
+        float distance = difference.magnitude;
+        Vector2 direction = difference / distance;
+        direction.Normalize();
+        GameObject skill = Instantiate(skillPrefab) as GameObject;
+        skill.transform.position = skillStart.transform.position;
+        skill.GetComponent<Rigidbody2D>().velocity = direction * skillSpeed;
+
         canCastSkill = false;
     }
 
