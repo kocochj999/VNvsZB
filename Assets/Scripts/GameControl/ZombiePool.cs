@@ -23,7 +23,7 @@ public class ZombiePool : MonoBehaviour
     public GameObject initSpawnPoint;
 
     private GameObject[] zombiePool;
-    private int poolMaxSize = 25;
+    private int poolMaxSize = 1;
     private float spawnRate = 2f;
     private float timeSinceLastSpawn;
     private int currentZombie = 0;

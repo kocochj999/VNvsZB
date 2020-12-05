@@ -43,7 +43,7 @@ public class Zombie : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    public virtual void Update()
     {
         healthBar.setHealthBar(health);
         if (Vector2.Distance(transform.position, player.position) < 45f)

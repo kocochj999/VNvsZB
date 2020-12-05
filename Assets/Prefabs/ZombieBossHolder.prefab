@@ -518,7 +518,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
@@ -543,8 +543,14 @@ MonoBehaviour:
   biteDamage: 100
   hurtTimer: 0
   hurtResetTime: 0.5
-  moveSpeed: 8
+  moveSpeed: 3
   healthBar: {fileID: 2729292689855338273}
+  skillCoolDown: 5
+  canCastSkill: 1
+  skillTimer: 0
+  castingSkill: 0
+  castingSkillTime: 2
+  castingTimer: 0
   ItemDroppingPrefab: {fileID: 4457831916992450587, guid: bb6135adc64419844bec3999f86a3c9f,
     type: 3}
 --- !u!50 &2729292691105358716
