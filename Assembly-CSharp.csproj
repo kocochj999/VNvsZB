@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\UI\FloatingDmgHandler.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Zombie\BossSkill.cs" />
+    <Compile Include="Assets\Scripts\Zombie\DestroySkill.cs" />
     <Compile Include="Assets\Scripts\Zombie\Zombie.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieBoss.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7897660647083540648}
   - component: {fileID: 7897660647083540649}
   - component: {fileID: 7897660647083540650}
+  - component: {fileID: 7306553001017138355}
   - component: {fileID: 1716195239627896137}
   m_Layer: 0
   m_Name: BossBall
@@ -113,6 +114,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+--- !u!114 &7306553001017138355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897660647083540651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c21b2827e0c6a43872ec67d40d710d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1716195239627896137
 Rigidbody2D:
   serializedVersion: 4
