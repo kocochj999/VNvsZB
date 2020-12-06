@@ -14,6 +14,7 @@ TagManager:
   - Edge
   - Mine
   - DroppingItem
+  - BossSkill
   layers:
   - Default
   - TransparentFX

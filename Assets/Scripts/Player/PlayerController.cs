@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
             health += Equipments.instance.hat.GetComponent<HatController>().hpPerSec * Time.deltaTime;
         }
 }
-private void Movement()
+    private void Movement()
     {
         float hDirection = Input.GetAxis("Horizontal") * Time.deltaTime;
         float vDirection = Input.GetAxis("Vertical") * Time.deltaTime ;
@@ -130,6 +130,19 @@ private void Movement()
         
         zombieObject.GetComponent<Zombie>().health -= Equipments.instance.armor.GetComponent<ArmorController>().armorDamage;
     }
+    public void getShot(GameObject skillObject)
+    {
+        if (Equipments.instance.armor.GetComponent<ArmorController>().isCharged)
+        {
+            health -= (skillObject.GetComponent<BossSkill>().damage - ArmorController.instance.armorValue - ArmorController.instance.addedValue);
+            Equipments.instance.armor.GetComponent<ArmorController>().isCharged = false;
+            Equipments.instance.armor.GetComponent<ArmorController>().shieldTimer = 0;
+        }
+        else
+        {
+            health -= (skillObject.GetComponent<BossSkill>().damage - Equipments.instance.armor.GetComponent<ArmorController>().armorValue);
+        }
+    }
     private void OnCollisionStay2D(Collision2D collision)
     {
         rb.velocity = Vector2.zero;
@@ -161,6 +174,15 @@ private void Movement()
                     HatController.instance.hat = hat;
                 }
             }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "BossSkill" && vulnerable)
+        {
+            Equipments.instance.armor.GetComponent<ArmorController>().isCharged = false;
+            vulnerable = false;
+            getShot(collision.gameObject);
         }
     }
 
