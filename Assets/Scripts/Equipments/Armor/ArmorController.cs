@@ -39,34 +39,38 @@ public class ArmorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this.gameObject.GetComponent<SpriteRenderer>().sprite = armor.icon;
-        this.armorType = armor.type;
-        this.armorName = armor.name;
-        this.armorLevel = armor.armorLevel;
-        this.armorValue = armor.armorValue;
-
-        if (armor.type == 1)
+        if (armor!=null)
         {
+            //this.gameObject.GetComponent<SpriteRenderer>().sprite = armor.icon;
+            this.armorType = armor.type;
+            this.armorName = armor.name;
+            this.armorLevel = armor.armorLevel;
+            this.armorValue = armor.armorValue;
 
-        }
-        if (armor.type == 2)
-        {
-            Blademail blademail = (Blademail)armor;
-            this.armorDamage = blademail.armorDamage;
-        }
-        if (armor.type == 3)
-        {
-            Shield shield = (Shield)armor;
-            this.addedValue = shield.addedValue;
-            this.chargeTime = shield.chargeTime;
-            //this.isCharged = shield.isCharge;
-        }
+            if (armor.type == 1)
+            {
 
-        shieldTimer += Time.deltaTime;
-        if (isCharged == false && shieldTimer >= chargeTime)
-        {
-            isCharged = true;
+            }
+            if (armor.type == 2)
+            {
+                Blademail blademail = (Blademail)armor;
+                this.armorDamage = blademail.armorDamage;
+            }
+            if (armor.type == 3)
+            {
+                Shield shield = (Shield)armor;
+                this.addedValue = shield.addedValue;
+                this.chargeTime = shield.chargeTime;
+                //this.isCharged = shield.isCharge;
+            }
 
+            shieldTimer += Time.deltaTime;
+            if (isCharged == false && shieldTimer >= chargeTime)
+            {
+                isCharged = true;
+
+            }
         }
+        
     }
 }

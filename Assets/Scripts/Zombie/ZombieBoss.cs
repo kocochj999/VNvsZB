@@ -74,7 +74,6 @@ public class ZombieBoss : Zombie
 
     private void RandomInstantiateDroppingItem()
     {
-        
         int numb = Random.Range(0,100);
         Debug.Log(numb);
         if (numb%3==0)

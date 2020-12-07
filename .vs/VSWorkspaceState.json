@@ -3,10 +3,9 @@
     "",
     "\\Assets",
     "\\Assets\\Scripts",
-    "\\Assets\\Scripts\\Equipments",
-    "\\Assets\\Scripts\\UI",
+    "\\Assets\\Scripts\\Player",
     "\\Assets\\Scripts\\Zombie"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\Zombie\\ItemDroppingSpawner.cs",
+  "SelectedNode": "\\Assets\\Scripts\\Player\\PlayerController.cs",
   "PreviewInSolutionExplorer": false
 }

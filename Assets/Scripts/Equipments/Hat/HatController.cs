@@ -31,24 +31,28 @@ public class HatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = hat.icon;
+        if (hat!=null)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = hat.icon;
         
-        if(hat.type == 1)
-        {
-            MuCoi muCoi = (MuCoi)hat;
+            if(hat.type == 1)
+            {
+                MuCoi muCoi = (MuCoi)hat;
 
-            this.addedHealth = muCoi.addedHealth;
+                this.addedHealth = muCoi.addedHealth;
+            }
+            if(hat.type == 2)
+            {
+                NonLa nonLa = (NonLa)hat;
+                this.hpPerSec = nonLa.hpPerSec;
+            }
+            if (hat.type == 3)
+            {
+                MuCoiLa muCoiLa = (MuCoiLa)hat;
+                this.hpPerSec = muCoiLa.hpPerSec;
+                this.addedHealth = muCoiLa.addHealth;
+            }
         }
-        if(hat.type == 2)
-        {
-            NonLa nonLa = (NonLa)hat;
-            this.hpPerSec = nonLa.hpPerSec;
-        }
-        if (hat.type == 3)
-        {
-            MuCoiLa muCoiLa = (MuCoiLa)hat;
-            this.hpPerSec = muCoiLa.hpPerSec;
-            this.addedHealth = muCoiLa.addHealth;
-        }
+        
     }
 }

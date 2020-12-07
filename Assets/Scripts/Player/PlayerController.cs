@@ -159,9 +159,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("DroppingItem"))
         {
+            Debug.Log("Oke");
             if (Input.GetKeyDown(KeyCode.F))
             {
-                //other.GetComponent<ItemDropper>().theChosenOne;
                 ItemScriptable ISItem = (ItemScriptable) other.GetComponent<ItemDropper>().theChosenOne;
                 if (ISItem.typeOfItem =="Gun")
                 {
@@ -173,6 +173,7 @@ public class PlayerController : MonoBehaviour
                     Hat hat = (Hat) ISItem;
                     HatController.instance.hat = hat;
                 }
+                Destroy(other.gameObject.transform.parent.gameObject);
             }
         }
     }
@@ -206,7 +207,7 @@ public class PlayerController : MonoBehaviour
     }
     public void PullTrigger(Vector3 target, Vector3 difference, float rotationZ)
     {
-        if (Equipments.instance.weapon!=null)
+        if (Equipments.instance.weapon!=null && WeaponController.instance.weapon!=null)
         {
             Equipments.instance.weapon.GetComponent<WeaponController>().Shoot(target, difference, rotationZ);
         }

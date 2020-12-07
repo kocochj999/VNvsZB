@@ -43,30 +43,33 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this.gameObject.GetComponent<SpriteRenderer>().sprite = weapon.icon;
-        this.damage = weapon.damage;
-        this.fireRate = weapon.fireRate;
-        this.fireRange = weapon.fireRange;
-        this.bulletSpeed = weapon.bulletSpeed;
-
-        if (weapon.type == 1) //neu weapon la Gun
+        if (weapon !=null)
         {
-            Gun gun = (Gun) weapon;
-            this.bulletPrefab = gun.bulletPrefab;
-            this.bulletPrefab.GetComponent<Bullet>().damage = this.damage;
-            this.bulletStart = new GameObject[gun.holderCapacity];
-            
-            try
-            {
-                this.bulletStart[0] = GameObject.FindGameObjectWithTag("BulletStart1");
-                this.bulletStart[1] = GameObject.FindGameObjectWithTag("BulletStart2");
-            }
-            catch
-            {
+            //this.gameObject.GetComponent<SpriteRenderer>().sprite = weapon.icon;
+            this.damage = weapon.damage;
+            this.fireRate = weapon.fireRate;
+            this.fireRange = weapon.fireRange;
+            this.bulletSpeed = weapon.bulletSpeed;
 
+            if (weapon.type == 1) //neu weapon la Gun
+            {
+                Gun gun = (Gun) weapon;
+                this.bulletPrefab = gun.bulletPrefab;
+                this.bulletPrefab.GetComponent<Bullet>().damage = this.damage;
+                this.bulletStart = new GameObject[gun.holderCapacity];
+            
+                try
+                {
+                    this.bulletStart[0] = GameObject.FindGameObjectWithTag("BulletStart1");
+                    this.bulletStart[1] = GameObject.FindGameObjectWithTag("BulletStart2");
+                }
+                catch
+                {
+
+                }
             }
+            timeCount -= Time.deltaTime;
         }
-        timeCount -= Time.deltaTime ;
     }
     public void Shoot(Vector3 target, Vector3 difference, float rotationZ)
     {

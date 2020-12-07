@@ -28,23 +28,15 @@ public class Equipments : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(weapon == null)
+        if(WeaponController.instance.weapon != null)
         {
-            WeaponController.instance.GetComponent<SpriteRenderer>().sprite = null;
+            weapon.GetComponent<SpriteRenderer>().sprite = WeaponController.instance.weapon.icon;
         }
-        else
+        if(HatController.instance.hat != null)
         {
-            WeaponController.instance.GetComponent<SpriteRenderer>().sprite = WeaponController.instance.weapon.icon;
+            hat.GetComponent<SpriteRenderer>().sprite = HatController.instance.hat.icon;
         }
-        if(hat == null)
-        {
-            HatController.instance.GetComponent<SpriteRenderer>().sprite = null;
-        }
-        else
-        {
-            HatController.instance.GetComponent<SpriteRenderer>().sprite = HatController.instance.hat.icon;
-            
-        }
+
         if(armor == null)
         {
             //ArmorController.instance.GetComponent<SpriteRenderer>().sprite = null;
