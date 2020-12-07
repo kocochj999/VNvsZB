@@ -434,6 +434,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ad5d5f8211425e44b84de1cda9594842, type: 2}
   - {fileID: 11400000, guid: 1742c5f8ab8a99d4b90c2237ce17294d, type: 2}
   - {fileID: 11400000, guid: bd2d2035daa81cb4bb6c925d639f8cfa, type: 2}
+  - {fileID: 11400000, guid: 742689c7655c00a478083aa8385d7b41, type: 2}
   theChosenOne: {fileID: 0}
 --- !u!58 &7039581218504405632
 CircleCollider2D:
