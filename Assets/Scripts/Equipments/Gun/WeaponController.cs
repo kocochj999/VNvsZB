@@ -14,6 +14,7 @@ public class WeaponController : MonoBehaviour
     public float fireRange;
     public float bulletSpeed;
 
+    public GameObject fireRangeObj;
     public GameObject bulletPrefab;
     public GameObject[] bulletStart;
     public AudioClip fireSound;
@@ -57,15 +58,16 @@ public class WeaponController : MonoBehaviour
                 this.bulletPrefab = gun.bulletPrefab;
                 this.bulletPrefab.GetComponent<Bullet>().damage = this.damage;
                 this.bulletStart = new GameObject[gun.holderCapacity];
-            
+                GameObject.FindGameObjectWithTag("SelfDestroyLine").GetComponent<CircleCollider2D>().radius = fireRange;
                 try
                 {
                     this.bulletStart[0] = GameObject.FindGameObjectWithTag("BulletStart1");
                     this.bulletStart[1] = GameObject.FindGameObjectWithTag("BulletStart2");
+                    
                 }
                 catch
                 {
-
+                    
                 }
             }
             timeCount -= Time.deltaTime;

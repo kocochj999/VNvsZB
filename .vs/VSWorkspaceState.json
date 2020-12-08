@@ -3,9 +3,11 @@
     "",
     "\\Assets",
     "\\Assets\\Scripts",
+    "\\Assets\\Scripts\\Equipments",
+    "\\Assets\\Scripts\\Equipments\\Gun",
     "\\Assets\\Scripts\\Player",
     "\\Assets\\Scripts\\Zombie"
   ],
-  "SelectedNode": "\\Assets\\Scripts\\Player\\PlayerController.cs",
+  "SelectedNode": "\\Assets\\Scripts\\Equipments\\Gun\\WeaponController.cs",
   "PreviewInSolutionExplorer": false
 }

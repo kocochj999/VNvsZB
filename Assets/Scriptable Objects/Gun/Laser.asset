@@ -18,7 +18,7 @@ MonoBehaviour:
   type: 1
   damage: 5
   fireRate: 0
-  fireRange: 25
+  fireRange: 17
   bulletPerShot: 1
   fireSound: {fileID: 8300000, guid: 56f5b6fa20679894d8658d743a03e1e4, type: 3}
   bulletSpeed: 30
