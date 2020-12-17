@@ -83,6 +83,7 @@ public class Zombie : MonoBehaviour
     public virtual void Dead()
     {
         Destroy(this.transform.parent.gameObject);
+        player.GetComponent<PlayerController>().GetPoint(1);
     }
 
     public void GettingShot(GameObject gO)

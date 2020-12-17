@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
+using TMPro;
 using UnityEditorInternal;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour
 
     //HealthBar
     public HealthBar healthBar;
+
+    //Point
+    [SerializeField] private int point = 0;
+    [SerializeField] private TextMeshProUGUI pointCount;
 
     private void Awake()
     {
@@ -216,7 +221,8 @@ public class PlayerController : MonoBehaviour
     }
     public void PlantMine()
     {
-        if(Input.GetMouseButtonDown(1))
+        
+        if (Input.GetMouseButtonDown(1))
         {
             GameObject mine = Instantiate(minePrefab) as GameObject;
             mine.transform.position = this.transform.position;
@@ -226,6 +232,11 @@ public class PlayerController : MonoBehaviour
             GameObject mine = Instantiate(minePrefab) as GameObject;
             mine.transform.position = this.transform.position;
         }
+    }
+    public void GetPoint(int pointValue)
+    {
+        point += pointValue;
+        pointCount.text = point.ToString();
     }
 
 

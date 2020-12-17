@@ -69,6 +69,7 @@ public class ZombieBoss : Zombie
     public override void Dead()
     {
         base.Dead();
+        player.GetComponent<PlayerController>().GetPoint(2);
         RandomInstantiateDroppingItem();
     }
 
