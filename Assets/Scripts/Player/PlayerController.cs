@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public bool vulnerable = true;
     public bool isDead = false;
 
+    //Stat UI
+    public GameObject statUI;
     //mine
     public GameObject minePrefab;
 
@@ -63,10 +65,12 @@ public class PlayerController : MonoBehaviour
     {
         healthBar.setMaxHealth(maxHealth);
         healthBar.setHealthBar(health);
-        PlantMine();
-        if(!isDead)
+        
+        if (!isDead)
         {
             Movement();
+            PlantMine();
+            ToggleStatUI();
             if (!vulnerable)
             {
                 vulnerableTimer += Time.deltaTime;
@@ -232,6 +236,20 @@ public class PlayerController : MonoBehaviour
             GameObject mine = Instantiate(minePrefab) as GameObject;
             mine.transform.position = this.transform.position;
             mine.GetComponent<Mine>().planter = this.transform;
+        }
+    }
+    public void ToggleStatUI()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            if (!statUI.activeInHierarchy)
+            {
+                statUI.SetActive(true);
+            }
+            else
+            {
+                statUI.SetActive(false);
+            }
         }
     }
     public void GetPoint(int pointValue)
