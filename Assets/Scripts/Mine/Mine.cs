@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
-
+    public Transform planter;
     public float mineDamage;
     public float explodeRadius;
     public GameObject floatingDmg;

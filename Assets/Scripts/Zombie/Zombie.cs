@@ -98,6 +98,7 @@ public class Zombie : MonoBehaviour
 
     public void GetExploded(GameObject gO)
     {
+        shooter = gO.GetComponent<Mine>().planter;
         health -= gO.GetComponent<Mine>().mineDamage;
         isHurt = true;
         rb.velocity = Vector2.zero;

@@ -225,11 +225,13 @@ public class PlayerController : MonoBehaviour
         {
             GameObject mine = Instantiate(minePrefab) as GameObject;
             mine.transform.position = this.transform.position;
+            mine.GetComponent<Mine>().planter = this.transform;
         }
         if(Input.GetKeyDown(KeyCode.G))
         {
             GameObject mine = Instantiate(minePrefab) as GameObject;
             mine.transform.position = this.transform.position;
+            mine.GetComponent<Mine>().planter = this.transform;
         }
     }
     public void GetPoint(int pointValue)
