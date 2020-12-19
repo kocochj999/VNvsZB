@@ -15,6 +15,7 @@ public class Zombie : MonoBehaviour
 
     public Transform player;
     public Transform center;
+    public Transform shooter;
     public bool canChase = false;
     public bool isHurt = false;
     
@@ -71,7 +72,7 @@ public class Zombie : MonoBehaviour
 
         if (health <= 0)
         {
-            Dead();
+            Dead(shooter);
         }
         if(PlayerController.instance.isDead)
         {
@@ -80,15 +81,16 @@ public class Zombie : MonoBehaviour
 
     }
 
-    public virtual void Dead()
+    public virtual void Dead(Transform shooter)
     {
         Destroy(this.transform.parent.gameObject);
-        player.GetComponent<PlayerController>().GetPoint(1);
+        //player who fire the bullet. Bullet get do-er (in case of multiplayer)
+        shooter.GetComponent<PlayerController>().GetPoint(1);
     }
 
     public void GettingShot(GameObject gO)
     {
-        
+        shooter = gO.GetComponent<Bullet>().shooter;
         health-= gO.GetComponent<Bullet>().damage;
         isHurt = true;
         rb.velocity = Vector2.zero;

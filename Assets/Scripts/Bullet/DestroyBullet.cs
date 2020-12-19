@@ -15,9 +15,7 @@ public class DestroyBullet : MonoBehaviour
         if(collision.gameObject.tag == "SelfDestroyLine")
         {
             Destroy(gameObject);
-        }
-        
-        
+        }        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

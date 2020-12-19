@@ -164,7 +164,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("DroppingItem"))
         {
-            Debug.Log("Oke");
             if (Input.GetKeyDown(KeyCode.F))
             {
                 ItemScriptable ISItem = (ItemScriptable) other.GetComponent<ItemDropper>().theChosenOne;

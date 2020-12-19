@@ -6,7 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     public static WeaponController instance;
     public Weapons weapon;
-
+    public GameObject shooter;
     public GameObject[] weaponHolder;
 
     public float damage;
@@ -57,6 +57,8 @@ public class WeaponController : MonoBehaviour
                 Gun gun = (Gun) weapon;
                 this.bulletPrefab = gun.bulletPrefab;
                 this.bulletPrefab.GetComponent<Bullet>().damage = this.damage;
+                this.bulletPrefab.GetComponent<Bullet>().culpritWeapon = this;
+                this.bulletPrefab.GetComponent<Bullet>().shooter = this.shooter.transform;
                 this.bulletStart = new GameObject[gun.holderCapacity];
                 GameObject.FindGameObjectWithTag("SelfDestroyLine").GetComponent<CircleCollider2D>().radius = fireRange;
                 try

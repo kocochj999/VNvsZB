@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Equipments : MonoBehaviour
 {
+    public GameObject wearer;
     public static Equipments instance;
     public GameObject weapon;
     public GameObject hat;
@@ -31,6 +32,7 @@ public class Equipments : MonoBehaviour
         if(WeaponController.instance.weapon != null)
         {
             weapon.GetComponent<SpriteRenderer>().sprite = WeaponController.instance.weapon.icon;
+            weapon.GetComponent<WeaponController>().shooter = this.wearer;
         }
         if(HatController.instance.hat != null)
         {

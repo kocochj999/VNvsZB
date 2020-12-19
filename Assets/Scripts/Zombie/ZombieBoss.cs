@@ -66,10 +66,11 @@ public class ZombieBoss : Zombie
         canCastSkill = false;
     }
 
-    public override void Dead()
+    public override void Dead(Transform shooter)
     {
-        base.Dead();
-        player.GetComponent<PlayerController>().GetPoint(2);
+        shooter = base.shooter;
+        base.Dead(shooter);
+        shooter.GetComponent<PlayerController>().GetPoint(2);
         RandomInstantiateDroppingItem();
     }
 
