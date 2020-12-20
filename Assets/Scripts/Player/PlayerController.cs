@@ -19,13 +19,22 @@ public class PlayerController : MonoBehaviour
     private enum State { normal, hurt, dead}
     private State state = State.normal;
 
+    //Stat
     public float health;
     public float maxHealth;
     private float moveForce = 3.5f;
+    public float baseArmor;
+    public float baseDamage;
+    public float baseHP;
+
+
+
     private float vulnerableTimer;
     public float vulnerableResetTime;
     public bool vulnerable = true;
     public bool isDead = false;
+
+    
 
     //Stat UI
     public GameObject statUI;
@@ -36,7 +45,7 @@ public class PlayerController : MonoBehaviour
     public HealthBar healthBar;
 
     //Point
-    [SerializeField] private int point = 0;
+    public int point = 0;
     [SerializeField] private TextMeshProUGUI pointCount;
 
     private void Awake()
@@ -49,14 +58,14 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        maxHealth = 100;
-        health = maxHealth;
+        health = baseHP;
         vulnerableTimer = 0f;
         vulnerableResetTime = 3f;
         
@@ -91,7 +100,8 @@ public class PlayerController : MonoBehaviour
         StateSwitch();
         anim.SetInteger("state", (int)state);
         //hat updates
-        maxHealth = 100 + Equipments.instance.hat.GetComponent<HatController>().addedHealth;
+       
+        maxHealth = baseHP + Equipments.instance.hat.GetComponent<HatController>().addedHealth;
         
         if(health < maxHealth)
         {
@@ -128,13 +138,13 @@ public class PlayerController : MonoBehaviour
     {
         if(Equipments.instance.armor.GetComponent<ArmorController>().isCharged)
         {
-            health -= (zombieObject.GetComponent<Zombie>().biteDamage - ArmorController.instance.armorValue - ArmorController.instance.addedValue);
+            health -= (zombieObject.GetComponent<Zombie>().biteDamage - (Equipments.instance.armor.GetComponent<ArmorController>().armorValue + this.baseArmor) - ArmorController.instance.addedValue);
             Equipments.instance.armor.GetComponent<ArmorController>().isCharged = false;
             Equipments.instance.armor.GetComponent<ArmorController>().shieldTimer = 0;
         }
         else
         {
-            health -= (zombieObject.GetComponent<Zombie>().biteDamage - Equipments.instance.armor.GetComponent<ArmorController>().armorValue);
+            health -= (zombieObject.GetComponent<Zombie>().biteDamage - (Equipments.instance.armor.GetComponent<ArmorController>().armorValue + this.baseArmor));
         }
         
         zombieObject.GetComponent<Zombie>().health -= Equipments.instance.armor.GetComponent<ArmorController>().armorDamage;
@@ -143,13 +153,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Equipments.instance.armor.GetComponent<ArmorController>().isCharged)
         {
-            health -= (skillObject.GetComponent<BossSkill>().damage - ArmorController.instance.armorValue - ArmorController.instance.addedValue);
+            health -= (skillObject.GetComponent<BossSkill>().damage - (Equipments.instance.armor.GetComponent<ArmorController>().armorValue + this.baseArmor) - ArmorController.instance.addedValue);
             Equipments.instance.armor.GetComponent<ArmorController>().isCharged = false;
             Equipments.instance.armor.GetComponent<ArmorController>().shieldTimer = 0;
         }
         else
         {
-            health -= (skillObject.GetComponent<BossSkill>().damage - Equipments.instance.armor.GetComponent<ArmorController>().armorValue);
+            health -= (skillObject.GetComponent<BossSkill>().damage - (Equipments.instance.armor.GetComponent<ArmorController>().armorValue + this.baseArmor));
         }
     }
     private void OnCollisionStay2D(Collision2D collision)

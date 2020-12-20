@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\UI\DropItemBar.cs" />
     <Compile Include="Assets\Scripts\UI\FloatingDmgHandler.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_Stat.cs" />
     <Compile Include="Assets\Scripts\Zombie\BossSkill.cs" />
     <Compile Include="Assets\Scripts\Zombie\DestroySkill.cs" />
     <Compile Include="Assets\Scripts\Zombie\Zombie.cs" />

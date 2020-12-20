@@ -23,7 +23,7 @@ public class ZombiePool : MonoBehaviour
     public GameObject initSpawnPoint;
 
     private GameObject[] zombiePool;
-    private int poolMaxSize = 1;
+    [SerializeField]private int poolMaxSize;
     private float spawnRate = 2f;
     private float timeSinceLastSpawn;
     private int currentZombie = 0;

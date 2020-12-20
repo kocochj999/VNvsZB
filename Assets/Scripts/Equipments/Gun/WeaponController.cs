@@ -44,10 +44,11 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (weapon !=null)
         {
             //this.gameObject.GetComponent<SpriteRenderer>().sprite = weapon.icon;
-            this.damage = weapon.damage;
+            this.damage = weapon.damage + PlayerController.instance.baseDamage;
             this.fireRate = weapon.fireRate;
             this.fireRange = weapon.fireRange;
             this.bulletSpeed = weapon.bulletSpeed;
